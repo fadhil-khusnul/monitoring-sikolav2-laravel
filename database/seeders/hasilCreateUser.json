@@ -1,0 +1,3230 @@
+[
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU EKONOMI - S1",
+        "username": "admin_1",
+        "password": "zlPQmx",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MANAJEMEN - S1",
+        "username": "admin_2",
+        "password": "urxcxN",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AKUNTANSI - S1",
+        "username": "admin_3",
+        "password": "Tw7ltE",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROG. PROFESI AKUNTANSI",
+        "username": "admin_4",
+        "password": "v3UVS7",
+        "role_id": "prodi"
+    },
+    {
+        "name": "HUKUM",
+        "username": "admin_hukum",
+        "password": "ySZa7z",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU HUKUM - S1",
+        "username": "admin_5",
+        "password": "baF8Db",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER - S1",
+        "username": "admin_6",
+        "password": "5TtxcQ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEPERAWATAN (HAPUS)",
+        "username": "admin_7",
+        "password": "abSVKs",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEPERAWATAN",
+        "username": "admin_keperawatan",
+        "password": "1zBrsG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEPERAWATAN - S1",
+        "username": "admin_8",
+        "password": "Qh0sTw",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PSIKOLOGI - S1",
+        "username": "admin_9",
+        "password": "ROwD8d",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK SIPIL - S1",
+        "username": "admin_10",
+        "password": "uCIjhv",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK LINGKUNGAN - S1",
+        "username": "admin_11",
+        "password": "X117xe",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK MESIN - S1",
+        "username": "admin_12",
+        "password": "oJ02IH",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK INDUSTRI - S1",
+        "username": "admin_13",
+        "password": "GyD8rW",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERKAPALAN - S1",
+        "username": "admin_14",
+        "password": "9gUmuT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK KELAUTAN - S1",
+        "username": "admin_15",
+        "password": "dmS23l",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK SISTEM PERKAPALAN - S1",
+        "username": "admin_16",
+        "password": "aH2Rou",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK ELEKTRO - S1",
+        "username": "admin_17",
+        "password": "6UacDT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK INFORMATIKA - S1",
+        "username": "admin_18",
+        "password": "7lUWIh",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK ARSITEKTUR - S1",
+        "username": "admin_19",
+        "password": "eyYRLl",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERENCANAAN WILAYAH KOTA - S1",
+        "username": "admin_20",
+        "password": "N8VUzr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK GEOLOGI - S1",
+        "username": "admin_21",
+        "password": "v4xPJp",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERTAMBANGAN - S1",
+        "username": "admin_22",
+        "password": "JjvzUl",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK KELAUTAN (HAPUS)",
+        "username": "admin_23",
+        "password": "vkSAhe",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU POLITIK - S1",
+        "username": "admin_24",
+        "password": "B8KiBL",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU PEMERINTAHAN - S1",
+        "username": "admin_25",
+        "password": "hi1ZY9",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU HUB. INTERNASIONAL - S1",
+        "username": "admin_26",
+        "password": "CjuqL7",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ADMINISTRASI PUBLIK - S1",
+        "username": "admin_27",
+        "password": "44fnhP",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KOMUNIKASI - S1",
+        "username": "admin_28",
+        "password": "IPFoU9",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SOSIOLOGI - S1",
+        "username": "admin_29",
+        "password": "dx9bQE",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ANTROPOLOGI SOSIAL - S1",
+        "username": "admin_30",
+        "password": "dA00RU",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SASTRA INDONESIA - S1",
+        "username": "admin_31",
+        "password": "Z33eDu",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SASTRA INGGRIS - S1",
+        "username": "admin_32",
+        "password": "b0Mj2x",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SASTRA PRANCIS - S1",
+        "username": "admin_33",
+        "password": "yg2EPr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SASTRA ASIA BARAT - S1",
+        "username": "admin_34",
+        "password": "VXGdOO",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SASTRA BUGIS-MAKASSAR - S1",
+        "username": "admin_35",
+        "password": "na0KSH",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ARKEOLOGI - S1",
+        "username": "admin_36",
+        "password": "kNeB7W",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU SEJARAH - S1",
+        "username": "admin_37",
+        "password": "O6kfQg",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SASTRA JEPANG - S1",
+        "username": "admin_38",
+        "password": "BSKure",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BUDIDAYA PERTANIAN [LAMA]",
+        "username": "admin_39",
+        "password": "pvT3pZ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU TANAH [LAMA]",
+        "username": "admin_40",
+        "password": "mVrJcI",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGRIBISNIS [LAMA]",
+        "username": "admin_41",
+        "password": "O5Yea1",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU HAMA DAN PENY. TUMBUHAN [LAMA]",
+        "username": "admin_42",
+        "password": "uPob3W",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU DAN TEKNOLOGI PANGAN [LAMA]",
+        "username": "admin_43",
+        "password": "Qzn4qA",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERTANIAN [LAMA]",
+        "username": "admin_44",
+        "password": "NJQfFH",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MATEMATIKA - S1",
+        "username": "admin_45",
+        "password": "dXq2hU",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "STATISTIKA - S1",
+        "username": "admin_46",
+        "password": "6C1CLu",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "FISIKA - S1",
+        "username": "admin_47",
+        "password": "vX7kfM",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "GEOFISIKA - S1",
+        "username": "admin_48",
+        "password": "0nLaHJ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KIMIA - S1",
+        "username": "admin_49",
+        "password": "3rVkJt",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BIOLOGI - S1",
+        "username": "admin_50",
+        "password": "uFsoxs",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PETERNAKAN",
+        "username": "admin_peternakan",
+        "password": "Qlw0BP",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PETERNAKAN - S1",
+        "username": "admin_51",
+        "password": "iMPcoW",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PETERNAKAN",
+        "username": "admin_peternakan",
+        "password": "Qlw0BP",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Nutrisi Dan Makanan Ternak",
+        "username": "admin_52",
+        "password": "MWQdTp",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PETERNAKAN",
+        "username": "admin_peternakan",
+        "password": "Qlw0BP",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Sosek Peternakan",
+        "username": "admin_53",
+        "password": "TMDjkS",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PETERNAKAN",
+        "username": "admin_peternakan",
+        "password": "Qlw0BP",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Teknologi Hasil peternakan",
+        "username": "admin_54",
+        "password": "tLkymL",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI - S1",
+        "username": "admin_55",
+        "password": "eJbaA4",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROFESI DOKTER GIGI",
+        "username": "admin_56",
+        "password": "Nzcl3D",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT (S1)",
+        "username": "admin_57",
+        "password": "n8ChlV",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BIOSTATISTIK\/KKB (HAPUS)",
+        "username": "admin_58",
+        "password": "gcyoCw",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "EPIDEMIOLOGI (HAPUS)",
+        "username": "admin_59",
+        "password": "6b6Jyr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "GIZI KES-MAS (HAPUS)",
+        "username": "admin_60",
+        "password": "W3PpXx",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KESEHATAN & KESELAMATAN KERJA (HAPUS)",
+        "username": "admin_61",
+        "password": "IBYu8n",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KESEHATAN LINGKUNGAN (HAPUS)",
+        "username": "admin_62",
+        "password": "sJ9ggf",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PKIP (HAPUS)",
+        "username": "admin_63",
+        "password": "uymq65",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MANAJEMEN RUMAH SAKIT (HAPUS)",
+        "username": "admin_64",
+        "password": "suQfE3",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU GIZI - S1",
+        "username": "admin_65",
+        "password": "LNwFoi",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KELAUTAN - S1",
+        "username": "admin_66",
+        "password": "pliYRc",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MANAJEMEN S.DAYA PERAIRAN - S1",
+        "username": "admin_67",
+        "password": "4oqjy2",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BUDIDAYA PERAIRAN - S1",
+        "username": "admin_68",
+        "password": "OYXgWR",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PEMANF. S. DAYA PERIKANAN - S1",
+        "username": "admin_69",
+        "password": "DedXDD",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGROBISNIS PERIKANAN - S1",
+        "username": "admin_70",
+        "password": "Ge70t6",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEHUTANAN",
+        "username": "admin_kehutanan",
+        "password": "f9UoAc",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEHUTANAN - S1",
+        "username": "admin_71",
+        "password": "ZlvzTZ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Teknologi Hasil Hutan",
+        "username": "admin_72",
+        "password": "qtPIAT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "FARMASI",
+        "username": "admin_farmasi",
+        "password": "IvY4Os",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "FARMASI - S1",
+        "username": "admin_73",
+        "password": "iT8I4j",
+        "role_id": "prodi"
+    },
+    {
+        "name": "FARMASI",
+        "username": "admin_farmasi",
+        "password": "IvY4Os",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROG. PROFESI APOTEKER",
+        "username": "admin_74",
+        "password": "ahJAoH",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SISTEM-SISTEM PERTANIAN - S2",
+        "username": "admin_75",
+        "password": "gqY9Cz",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU PERTANIAN - S3",
+        "username": "admin_76",
+        "password": "rvc61x",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEHUTANAN",
+        "username": "admin_kehutanan",
+        "password": "f9UoAc",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEHUTANAN - S2",
+        "username": "admin_77",
+        "password": "cEv3k4",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PETERNAKAN",
+        "username": "admin_peternakan",
+        "password": "Qlw0BP",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU DAN TEKNOLOGI PETERNAKAN - S2",
+        "username": "admin_78",
+        "password": "Sk0UJ5",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU PERIKANAN - S3",
+        "username": "admin_79",
+        "password": "Mkh4Sq",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PERENCANAAN DAN PENGEMBANGAN WILAYAH - S2",
+        "username": "admin_80",
+        "password": "exqvaN",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KEDOKTERAN - S3",
+        "username": "admin_81",
+        "password": "9lxqcB",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PERENCANAAN DAN PENGEMBANGAN WILAYAH (HAPUS)",
+        "username": "admin_82",
+        "password": "DXgnlT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PENGELOLAAN LINGKUNGAN HIDUP - S2",
+        "username": "admin_83",
+        "password": "nVKMrV",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU LINGUISTIK - S3",
+        "username": "admin_84",
+        "password": "a4xPSY",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "EKONOMI SUMBERDAYA - S2",
+        "username": "admin_85",
+        "password": "Lx4SrI",
+        "role_id": "prodi"
+    },
+    {
+        "name": "HUKUM",
+        "username": "admin_hukum",
+        "password": "ySZa7z",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU HUKUM - S3",
+        "username": "admin_86",
+        "password": "ODu91I",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "LINGUISTIK - S2",
+        "username": "admin_87",
+        "password": "sPpPJM",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU EKONOMI - S3",
+        "username": "admin_88",
+        "password": "Cqkf3N",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BAHASA INGGRIS - S2",
+        "username": "admin_89",
+        "password": "zad7Ab",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU SOSIAL - S3 (HAPUS)",
+        "username": "admin_90",
+        "password": "bkRrf2",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "EKONOMI PEMBANGUNAN DAN PERENCANAAN - S2",
+        "username": "admin_91",
+        "password": "hV5Dox",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KIMIA - S3",
+        "username": "admin_92",
+        "password": "RsA6M8",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ADMINISTRASI PUBLIK - S2",
+        "username": "admin_93",
+        "password": "S9X5kq",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK SIPIL - S3",
+        "username": "admin_94",
+        "password": "QawX51",
+        "role_id": "prodi"
+    },
+    {
+        "name": "HUKUM",
+        "username": "admin_hukum",
+        "password": "ySZa7z",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU HUKUM - S2",
+        "username": "admin_95",
+        "password": "WgDMTV",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU ADMINISTRASI PUBLIK - S3",
+        "username": "admin_96",
+        "password": "QFrPm8",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGRIBISNIS - S2",
+        "username": "admin_97",
+        "password": "AqsZDL",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KIMIA - S2",
+        "username": "admin_98",
+        "password": "pD7AGF",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BAHASA INDONESIA - S2",
+        "username": "admin_99",
+        "password": "Ifa1GW",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MANAJEMEN PERKOTAAN - S2",
+        "username": "admin_100",
+        "password": "SEZVbF",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KOMUNIKASI - S2",
+        "username": "admin_101",
+        "password": "sSrLKn",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU BIOMEDIK - S2",
+        "username": "admin_102",
+        "password": "ZbGbNL",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SOSIOLOGI - S2",
+        "username": "admin_103",
+        "password": "2VNQA3",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PERENCANAAN PEMBANGUNAN SOSIAL - S2 (HAPUS)",
+        "username": "admin_104",
+        "password": "tROMPS",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SAINS MANAJEMEN - S2",
+        "username": "admin_105",
+        "password": "XtOVrN",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KESEHATAN MASYARAKAT - S2",
+        "username": "admin_106",
+        "password": "m5MZCb",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ANTROPOLOGI - S2",
+        "username": "admin_107",
+        "password": "KDDnNl",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU ANTROPOLOGI - S3",
+        "username": "admin_108",
+        "password": "o954tB",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "JENDER DAN PEMBANGUNAN - S2",
+        "username": "admin_109",
+        "password": "kS25vX",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MAGISTER MANAJEMEN - S2",
+        "username": "admin_110",
+        "password": "mWRiWi",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK MESIN - S2",
+        "username": "admin_111",
+        "password": "QTyNak",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "T. Mesin\/Konstruksi Mesin (HAPUS)",
+        "username": "admin_112",
+        "password": "4hh2wr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK SIPIL - S2",
+        "username": "admin_113",
+        "password": "qHW7gz",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROGRAM PENDIDIKAN DOKTER SPESIALIS I (HAPUS)",
+        "username": "admin_114",
+        "password": "e8jdhs",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU BEDAH",
+        "username": "admin_115",
+        "password": "3vP00C",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU PENYAKIT MATA",
+        "username": "admin_116",
+        "password": "l1BdxT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS OBSTETRI DAN GINEKOLOGI",
+        "username": "admin_117",
+        "password": "5OSOgu",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU PENYAKIT DALAM",
+        "username": "admin_118",
+        "password": "Edu0Sp",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU KESEHATAN ANAK",
+        "username": "admin_119",
+        "password": "1Mjxc7",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU PENYAKIT THT",
+        "username": "admin_120",
+        "password": "ulcZfO",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU PENYAKIT KULIT DAN KELAMIN",
+        "username": "admin_121",
+        "password": "ZdaHMp",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU PATOLOGI KLINIK",
+        "username": "admin_122",
+        "password": "YdD1Fg",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS PATOLOGI ANATOMI",
+        "username": "admin_123",
+        "password": "I2ZyyW",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU RADIOLOGI",
+        "username": "admin_124",
+        "password": "y1mOEN",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU KEDOKTERAN JIWA - PSIKIATRI",
+        "username": "admin_125",
+        "password": "QWrCVK",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU PENYAKIT SARAF",
+        "username": "admin_126",
+        "password": "LJ5t02",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU KEDOKTERAN FORENSIK DAN MEDIKOLEGAL",
+        "username": "admin_127",
+        "password": "Jd31s2",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ANESTESIOLOGI",
+        "username": "admin_128",
+        "password": "Dwv7Xv",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ORTHOPEDI",
+        "username": "admin_129",
+        "password": "9AfKC5",
+        "role_id": "prodi"
+    },
+    {
+        "name": "FARMASI",
+        "username": "admin_farmasi",
+        "password": "IvY4Os",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "FARMASI - S2",
+        "username": "admin_130",
+        "password": "d9Y5t5",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MAGISTER KEUANGAN DAERAH - S2",
+        "username": "admin_131",
+        "password": "EE1qQi",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK ELEKTRO - S2",
+        "username": "admin_132",
+        "password": "9oO6Bl",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERENCANAAN PRASARANA - S2",
+        "username": "admin_133",
+        "password": "jJeP8x",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK TRANSPORTASI - S2",
+        "username": "admin_134",
+        "password": "W77TIJ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK GEOLOGI - S2",
+        "username": "admin_135",
+        "password": "27vNKF",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERKAPALAN - S2",
+        "username": "admin_136",
+        "password": "lnImx0",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ARSITEKTUR - S2",
+        "username": "admin_137",
+        "password": "Tyz6Yd",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU PERIKANAN - S2",
+        "username": "admin_138",
+        "password": "L7jxqy",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MAGISTER AKUNTANSI - S2",
+        "username": "admin_139",
+        "password": "GFeO5k",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MATEMATIKA - S2",
+        "username": "admin_140",
+        "password": "cUdT9m",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MKU",
+        "username": "admin_mku",
+        "password": "COrnmfpz",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MKU  Eksakta",
+        "username": "admin_141",
+        "password": "VNEH3n",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MKU",
+        "username": "admin_mku",
+        "password": "COrnmfpz",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MKU  Non-Eksakta",
+        "username": "admin_142",
+        "password": "Evkt91",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Agroteknologi (HAPUS)",
+        "username": "admin_143",
+        "password": "jZBZtL",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Keteknikan Pertanian (HAPUS)",
+        "username": "admin_144",
+        "password": "NWOWgG",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEPERAWATAN",
+        "username": "admin_keperawatan",
+        "password": "1zBrsG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "FISIOTERAPI",
+        "username": "admin_145",
+        "password": "kCbr4E",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER HEWAN",
+        "username": "admin_146",
+        "password": "ZWDIsS",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROFESI DOKTER",
+        "username": "admin_147",
+        "password": "PQSfFe",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEPERAWATAN",
+        "username": "admin_keperawatan",
+        "password": "1zBrsG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROFESI NERS",
+        "username": "admin_148",
+        "password": "7lgGhJ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Fisioterapi (A)  (Hapus)",
+        "username": "admin_149",
+        "password": "8blRbm",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT (S1) (HAPUS)",
+        "username": "admin_150",
+        "password": "s31bnr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK LINGKUNGAN (hapus)",
+        "username": "admin_151",
+        "password": "Y8E2nA",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGROTEKNOLOGI - S1",
+        "username": "admin_152",
+        "password": "boiEpk",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGRIBISNIS - S1",
+        "username": "admin_153",
+        "password": "JfJSu4",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU DAN TEKNOLOGI PANGAN - S1",
+        "username": "admin_154",
+        "password": "fd3Ws0",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KETEKNIKAN PERTANIAN - S1",
+        "username": "admin_155",
+        "password": "ZqRrT0",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU DAN TEKNOLOGI PANGAN - S2",
+        "username": "admin_156",
+        "password": "cf6CQm",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KETEKNIKAN PERTANIAN - S2",
+        "username": "admin_157",
+        "password": "sgVY2p",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU HAMA DAN PENYAKIT TUMBUHAN - S2",
+        "username": "admin_158",
+        "password": "wBjln4",
+        "role_id": "prodi"
+    },
+    {
+        "name": "HUKUM",
+        "username": "admin_hukum",
+        "password": "ySZa7z",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "HUKUM ADMINISTRASI NEGARA - S1",
+        "username": "admin_159",
+        "password": "FrHRjr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SISTEM INFORMASI - S1",
+        "username": "admin_160",
+        "password": "MVOmFF",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEPERAWATAN",
+        "username": "admin_keperawatan",
+        "password": "1zBrsG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROFESI FISIOTERAPI",
+        "username": "admin_161",
+        "password": "GAWREr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "GEOFISIKA - S2",
+        "username": "admin_162",
+        "password": "m2NN1o",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "FISIKA - S2",
+        "username": "admin_163",
+        "password": "G45Tyd",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROFESI DOKTER HEWAN",
+        "username": "admin_164",
+        "password": "QCGoHE",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU ARSITEKTUR - S3",
+        "username": "admin_165",
+        "password": "dEthLV",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI KEBUMIAN DAN LINGKUNGAN - S3",
+        "username": "admin_166",
+        "password": "Zmr68c",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK ELEKTRO - S3",
+        "username": "admin_167",
+        "password": "tvfRbg",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK MESIN - S3",
+        "username": "admin_168",
+        "password": "7DET4E",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PENGELOLAAN SUMBERDAYA PESISIR TERPADU - S2",
+        "username": "admin_169",
+        "password": "4PZDXI",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEPERAWATAN",
+        "username": "admin_keperawatan",
+        "password": "1zBrsG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KEPERAWATAN - S2",
+        "username": "admin_170",
+        "password": "9jq4tw",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KEBIDANAN - S2",
+        "username": "admin_171",
+        "password": "0CCqEL",
+        "role_id": "prodi"
+    },
+    {
+        "name": "HUKUM",
+        "username": "admin_hukum",
+        "password": "ySZa7z",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KENOTARIATAN - S2",
+        "username": "admin_172",
+        "password": "Ad81NF",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT - S3",
+        "username": "admin_173",
+        "password": "MvhZHm",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU POLITIK - S2",
+        "username": "admin_174",
+        "password": "VYMeL9",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGROTEKNOLOGI - S2",
+        "username": "admin_175",
+        "password": "4HCj6z",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK AGROINDUSTRI - S2",
+        "username": "admin_176",
+        "password": "S9W7Im",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MKU",
+        "username": "admin_mku",
+        "password": "COrnmfpz",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "P2KKN",
+        "username": "admin_177",
+        "password": "h0Vrab",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS - ILMU PENYAKIT JANTUNG DAN PEMBULUH DARAH",
+        "username": "admin_178",
+        "password": "vhJurv",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS - ILMU GIZI KLINIK",
+        "username": "admin_179",
+        "password": "cMJJU9",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS - PULMONOLOGI",
+        "username": "admin_180",
+        "password": "Djr6Gm",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS - MIKROBIOLOGI KLINIK",
+        "username": "admin_181",
+        "password": "xZGLi0",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS - ILMU BEDAH SARAF",
+        "username": "admin_182",
+        "password": "5Bdz3e",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDGS - PROSTODONSIA",
+        "username": "admin_183",
+        "password": "M8Mn3D",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDGS - ILMU KONSERVASI GIGI",
+        "username": "admin_184",
+        "password": "uursKn",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDGS - DOKTER GIGI PERIODONSIA",
+        "username": "admin_185",
+        "password": "W25ypC",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KOMUNIKASI -S3",
+        "username": "admin_186",
+        "password": "YPzC2P",
+        "role_id": "prodi"
+    },
+    {
+        "name": "FARMASI",
+        "username": "admin_farmasi",
+        "password": "IvY4Os",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU FARMASI - S3",
+        "username": "admin_187",
+        "password": "PtM562",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ARKEOLOGI - S2",
+        "username": "admin_188",
+        "password": "aqOzBb",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BAHASA MANDARIN",
+        "username": "admin_189",
+        "password": "3SMvOk",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SOSIOLOGI - S3",
+        "username": "admin_190",
+        "password": "3m3mar",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU PEMERINTAHAN - S2",
+        "username": "admin_191",
+        "password": "307iKF",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEUANGAN MIKRO - S2",
+        "username": "admin_192",
+        "password": "prh6kz",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PETERNAKAN",
+        "username": "admin_peternakan",
+        "password": "Qlw0BP",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PETERNAKAN - S3",
+        "username": "admin_193",
+        "password": "dUJNWh",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BIOLOGI - S2",
+        "username": "admin_194",
+        "password": "UpLtyE",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEHUTANAN",
+        "username": "admin_kehutanan",
+        "password": "f9UoAc",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEHUTANAN - S3",
+        "username": "admin_195",
+        "password": "4CAmnw",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROFESI INSINYUR",
+        "username": "admin_196",
+        "password": "XCFZpy",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BAHASA MANDARIN DAN KEBUDAYAAN TIONGKOK",
+        "username": "admin_197",
+        "password": "Ij3STw",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDGS - BEDAH MULUT DAN MAKSILOFASIAL",
+        "username": "admin_198",
+        "password": "dJsDkP",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MAGISTER ADMINISTRASI RUMAH SAKIT",
+        "username": "admin_199",
+        "password": "GXC0aw",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU AKUNTANSI - S3",
+        "username": "admin_200",
+        "password": "nfpRtS",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK INDUSTRI - S2",
+        "username": "admin_201",
+        "password": "YLWIle",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU AKTUARIA",
+        "username": "admin_202",
+        "password": "amQvak",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEPERAWATAN",
+        "username": "admin_keperawatan",
+        "password": "1zBrsG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEPERAWATAN - D3",
+        "username": "admin_203",
+        "password": "jbXogg",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Magister Teknik Informatika - S2",
+        "username": "admin_204",
+        "password": "JPK5k1",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BAHASA INGGRIS - S3",
+        "username": "admin_205",
+        "password": "69lpUA",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK LINGKUNGAN - S2",
+        "username": "admin_206",
+        "password": "lizQZT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Matematika - S3",
+        "username": "admin_208",
+        "password": "qQbuHL",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Statistika - S2",
+        "username": "admin_210",
+        "password": "2JNsvm",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Sejarah - S2",
+        "username": "admin_211",
+        "password": "fI3jQ5",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDGS Ortodonti",
+        "username": "admin_212",
+        "password": "H7Tm64",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEHUTANAN",
+        "username": "admin_kehutanan",
+        "password": "f9UoAc",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Rekayasa Kehutanan - S1",
+        "username": "admin_213",
+        "password": "V1e3qx",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "SASTRA INDONESIA - S3",
+        "username": "admin_214",
+        "password": "f2Vg1Y",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERENCANAAN WILAYAH DAN KOTA - S2",
+        "username": "admin_215",
+        "password": "i98cMy",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK PERTAMBANGAN -S2",
+        "username": "admin_216",
+        "password": "jy8aMO",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEDOKTERAN GIGI - S2",
+        "username": "admin_217",
+        "password": "YXujVV",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI PRODUKSI TERNAK - D4",
+        "username": "admin_218",
+        "password": "cd6X1q",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI PRODUKSI TANAMAN PANGAN - D4",
+        "username": "admin_219",
+        "password": "0j2Sd3",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KESELAMATAN DAN KESEHATAN KERJA - S2",
+        "username": "admin_220",
+        "password": "pbgju2",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "FISIKA - S3",
+        "username": "admin_221",
+        "password": "7BC8eJ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU KEDOKTERAN FISIK DAN REHABILITASI",
+        "username": "admin_222",
+        "password": "2Br2bY",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MANAJEMEN - S3",
+        "username": "admin_223",
+        "password": "SiiG9M",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDGS - ILMU KEDOKTERAN GIGI ANAK",
+        "username": "admin_225",
+        "password": "Y6hxHJ",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "STUDI PEMBANGUNAN - S3",
+        "username": "admin_226",
+        "password": "yKZYbf",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ANESTESIOLOGI DAN TERAPI (Sp2)",
+        "username": "admin_227",
+        "password": "qK2VWV",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU BEDAH (Sp2)",
+        "username": "admin_228",
+        "password": "cfBg3Z",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS ILMU PENYAKIT DALAM (Sp2)",
+        "username": "admin_229",
+        "password": "lyLnbT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEHUTANAN",
+        "username": "admin_kehutanan",
+        "password": "f9UoAc",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KONSERVASI HUTAN - S1",
+        "username": "admin_230",
+        "password": "Yo84jt",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU SOSIAL DAN ILMU POLITIK",
+        "username": "admin_fisip",
+        "password": "5n2sZ1",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU POLITIK - S3",
+        "username": "admin_231",
+        "password": "NyAiUT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU TANAH - S1",
+        "username": "admin_232",
+        "password": "peAfpN",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROTEKSI TANAMAN - S1",
+        "username": "admin_233",
+        "password": "WI6IKl",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI HASIL PERIKANAN - S1",
+        "username": "admin_235",
+        "password": "zEVWJA",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU KELAUTAN DAN PERIKANAN",
+        "username": "admin_fikp",
+        "password": "N3K0Zg",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KELAUTAN - S2",
+        "username": "admin_236",
+        "password": "4NHCdR",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MATEMATIKA DAN ILMU PENG. ALAM",
+        "username": "admin_mipa",
+        "password": "eP0XMY",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MIKROBIOLOGI - S2",
+        "username": "admin_237",
+        "password": "KNc2a0",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MKU",
+        "username": "admin_mku",
+        "password": "COrnmfpz",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Prodi Testing",
+        "username": "admin_238",
+        "password": "1UKYak",
+        "role_id": "prodi"
+    },
+    {
+        "name": "MKU",
+        "username": "admin_mku",
+        "password": "COrnmfpz",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "Prodi Testing",
+        "username": "admin_239",
+        "password": "UM0Xg7",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ADMINISTRASI DAN KEBIJAKAN KESEHATAN - S2",
+        "username": "admin_240",
+        "password": "gVCPtD",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU GIZI - S2",
+        "username": "admin_241",
+        "password": "TACsjR",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KAJIAN BUDAYA - S2",
+        "username": "admin_242",
+        "password": "LSmUTd",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGRIBISNIS PETERNAKAN - D4",
+        "username": "admin_243",
+        "password": "q6YJMa",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "DESTINASI PARIWISATA - D4",
+        "username": "admin_244",
+        "password": "Jkk5c3",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "BUDI DAYA LAUT DAN PANTAI - D4",
+        "username": "admin_246",
+        "password": "RLWgg5",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TERAPI GIGI - D4",
+        "username": "admin_247",
+        "password": "5unUhj",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "MANAJEMEN BENCANA - S2",
+        "username": "admin_248",
+        "password": "fH7Crb",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU PENDIDIKAN KEDOKTERAN DAN KESEHATAN - S2",
+        "username": "admin_249",
+        "password": "FXh0Wf",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDGS RADIOLOGI KEDOKTERAN GIGI",
+        "username": "admin_251",
+        "password": "tKj9ns",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KESEHATAN MASYARAKAT",
+        "username": "admin_fkm",
+        "password": "ay1giL",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KESEHATAN LINGKUNGAN - S2",
+        "username": "admin_252",
+        "password": "tfnO5Q",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU LINGKUNGAN - S3",
+        "username": "admin_253",
+        "password": "3scRXG",
+        "role_id": "prodi"
+    },
+    {
+        "name": "ILMU BUDAYA",
+        "username": "admin_fib",
+        "password": "ZwsjJa",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PARIWISATA - S1",
+        "username": "admin_254",
+        "password": "ffDXQn",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "AGRIBISNIS PANGAN - D4",
+        "username": "admin_255",
+        "password": "pS1zT5",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI PAKAN TERNAK - D4",
+        "username": "admin_256",
+        "password": "Pro1rp",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU KEDOKTERAN GIGI - S3",
+        "username": "admin_257",
+        "password": "UWWbda",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS - ILMU BEDAH ANAK",
+        "username": "admin_258",
+        "password": "zA6IzV",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PENDIDIKAN DOKTER GIGI",
+        "username": "admin_fkg",
+        "password": "EvyBFH",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "ILMU PENYAKIT MULUT",
+        "username": "admin_260",
+        "password": "OvlbOi",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PROFESI ARSITEK",
+        "username": "admin_261",
+        "password": "OEbgU3",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI AKUAKULTUR DAN PASCA PANEN PERIKANAN - D4",
+        "username": "admin_263",
+        "password": "I5RKnr",
+        "role_id": "prodi"
+    },
+    {
+        "name": "EKONOMI",
+        "username": "admin_ekonomi",
+        "password": "Bk6gTG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "EKONOMI DAN BISNIS ISLAM - S1",
+        "username": "admin_264",
+        "password": "x6dTOk",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK METALURGI DAN MATERIAL - S1",
+        "username": "admin_265",
+        "password": "Xittic",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PARAMEDIK VETERINER - D4",
+        "username": "admin_266",
+        "password": "7n7XIC",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI METALURGI EKSTRAKSI - D4",
+        "username": "admin_267",
+        "password": "ZpWS9Y",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEPERAWATAN",
+        "username": "admin_keperawatan",
+        "password": "1zBrsG",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KEPERAWATAN MEDICAL BEDAH",
+        "username": "admin_268",
+        "password": "ulB6B8",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS UROLOGI",
+        "username": "admin_269",
+        "password": "7ZMNd8",
+        "role_id": "prodi"
+    },
+    {
+        "name": "VOKASI",
+        "username": "admin_vokasi",
+        "password": "Z2vRUe",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PENGINDERAAN JAUH DAN SISTEM INFORMASI GEOGRAFIS - D4",
+        "username": "admin_270",
+        "password": "rkZz2Y",
+        "role_id": "prodi"
+    },
+    {
+        "name": "KEDOKTERAN",
+        "username": "admin_kedokteran",
+        "password": "RMZ82d",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PPDS BEDAH TORAKS, KARDIAK, DAN VASKULAR",
+        "username": "admin_271",
+        "password": "dnCgyK",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "KRIMINOLOGI - S2",
+        "username": "admin_272",
+        "password": "jtFWD9",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNOLOGI INDUSTRI PERTANIAN - S1",
+        "username": "admin_273",
+        "password": "BJJGVA",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK GEODESI - S1",
+        "username": "admin_274",
+        "password": "s5pwOj",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PERTANIAN",
+        "username": "admin_pertanian",
+        "password": "TNwhzu",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "PEMBANGUNAN PERTANIAN - S1",
+        "username": "admin_275",
+        "password": "YMECTT",
+        "role_id": "prodi"
+    },
+    {
+        "name": "TEKNIK",
+        "username": "admin_teknik",
+        "password": "WGxYS4",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK KELAUTAN - S2",
+        "username": "admin_276",
+        "password": "82yYmu",
+        "role_id": "prodi"
+    },
+    {
+        "name": "PROGRAM PASCASARJANA",
+        "username": "admin_pasca",
+        "password": "YKtRhm",
+        "role_id": "fakultas"
+    },
+    {
+        "name": "TEKNIK BIOMEDIK - S2",
+        "username": "admin_277",
+        "password": "HLkdtZ",
+        "role_id": "prodi"
+    }
+]
