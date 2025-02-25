@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import Select from 'react-select';
-import { router } from '@inertiajs/react';
 
-const FilterSelect = ({ semesterOptions }) => {
+import React, { useState, useEffect } from 'react';
+import { router } from '@inertiajs/react';
+import Select from 'react-select';
+import InputLabel from '../InputLabel';
+
+const FilterSelect = ({ semesterOptions, filter }) => {
   const [selectedSemester, setSelectedSemester] = useState(null);
   const [selectedProgram, setSelectedProgram] = useState(null);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -135,6 +137,10 @@ const FilterSelect = ({ semesterOptions }) => {
     sessionStorage.setItem('filterParams', JSON.stringify(filterParams));
 
 
+    console.log(filter);
+
+
+
 
     const queryParams = {};
     if (selectedSemester?.ta_semester) queryParams.ta_semester = selectedSemester.ta_semester;
@@ -143,16 +149,21 @@ const FilterSelect = ({ semesterOptions }) => {
     if (selectedProgram?.kode_dikti) queryParams.kode_dikti = selectedProgram.kode_dikti;
     if (selectedCourse?.kode_matkul) queryParams.kode_matkul = selectedCourse.kode_matkul;
 
+    if (filter) queryParams.filter = filter;
 
-    const courseData = await fetchOptions('/getCourses', queryParams);
-    if (courseData) {
-      router.get(route('dashboard'), queryParams, { preserveState: true });
+
+    if (selectedSemester &&selectedProgram) {
+      const courseData = await fetchOptions('/getCourses', queryParams);
+
+      // router.get(route('dashboard'), queryParams, { preserveState: true });
+
+      router.reload()
       setIsLoading(false)
       setIsFilterButtonDisabled(false)
 
-      console.log(courseData);
 
     }
+
 
 
 
@@ -164,57 +175,68 @@ const FilterSelect = ({ semesterOptions }) => {
   };
 
   useEffect(() => {
+
     setIsFilterButtonDisabled(!selectedSemester || !selectedProgram);
+    // setIsFilterButtonDisabled(!selectedSemester || !selectedProgram);
   }, [selectedSemester, selectedProgram, selectedCourse]);
 
   return (
-    <div className="flex flex-wrap mb-4 remove-input-txt-border">
-      {/* Semester Select */}
-      <div className="w-full sm:w-1/3 md:w-1/4 px-2 mb-4">
-        <label className="block text-sm font-medium">Semester</label>
-        <Select
-          options={semesterOptions}
-          value={selectedSemester}
-          onChange={handleSemesterChange}
-          isDisabled={isLoading}
+    <div className="bg-white shadow-md sm:rounded-lg dark:bg-gray-800">
+      <div className="p-8 text-gray-900 dark:text-gray-100">
+        <div className="flex flex-wrap mb-4 remove-input-txt-border">
+          <div className="select-container w-full sm:w-1/3 md:w-1/4 px-2 mb-4">
+            {/* Semester Select */}
+            <InputLabel htmlFor="Semester" value="Semester" />
 
-          placeholder="Search Semester..."
-        />
-      </div>
+            <Select
+              classNamePrefix="react-select"
 
-      {/* Program Studi Select */}
-      <div className="w-full sm:w-1/3 md:w-1/4 px-2 mb-4">
-        <label className="block text-sm font-medium">Program Studi</label>
-        <Select
-          options={prodiOptions}
-          value={selectedProgram}
-          onChange={handleProgramChange}
-          isDisabled={!selectedSemester || isLoading}
-          placeholder="Search Program Studi..."
-        />
-      </div>
+              options={semesterOptions}
+              value={selectedSemester}
+              onChange={handleSemesterChange}
+              isDisabled={isLoading}
 
-      {/* Matakuliah Select */}
-      <div className="w-full sm:w-1/3 md:w-1/4 px-2 mb-4">
-        <label className="block text-sm font-medium">Matakuliah</label>
-        <Select
-          options={courseOptions}
-          value={selectedCourse}
-          onChange={handleCourseChange}
-          isDisabled={!selectedProgram || isLoading}
-          placeholder="Search Matakuliah..."
-        />
-      </div>
+              placeholder="Search Semester..."
+            />
+          </div>
 
-      {/* Filter Button */}
-      <div className="w-full sm:w-1/3 md:w-1/4 px-2 mt-6">
-        <button
-          onClick={handleFilterSubmit}
-          disabled={isFilterButtonDisabled || isLoading}
-          className="btn btn-sm btn-primary"
-        >
-          {isLoading ? 'Loading...' : 'Filter'}
-        </button>
+          <div className="w-full sm:w-1/3 md:w-1/4 px-2 mb-4 z-20">
+            {/* Program Studi Select */}
+            <InputLabel htmlFor="Program Studi" value="Program Studi" />
+
+            <Select
+              options={prodiOptions}
+              value={selectedProgram}
+              onChange={handleProgramChange}
+              isDisabled={!selectedSemester || isLoading}
+              placeholder="Search Program Studi..."
+            />
+          </div>
+
+          <div className="w-full sm:w-1/3 md:w-1/4 px-2 mb-4">
+            {/* Matakuliah Select */}
+            <InputLabel htmlFor="Matakuliah" value="Matakuliah" />
+
+            <Select
+              options={courseOptions}
+              value={selectedCourse}
+              onChange={handleCourseChange}
+              isDisabled={!selectedProgram || isLoading}
+              placeholder="Search Matakuliah..."
+            />
+          </div>
+
+          {/* Filter Button */}
+          <div className="w-full sm:w-1/3 md:w-1/4 px-2 mt-6">
+            <button
+              onClick={handleFilterSubmit}
+              disabled={isFilterButtonDisabled || isLoading}
+              className="btn btn-sm btn-primary"
+            >
+              {isLoading ? 'Loading...' : 'Filter'}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

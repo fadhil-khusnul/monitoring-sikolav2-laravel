@@ -77,7 +77,7 @@ class NeosiaController extends Controller
             // Filter and transform the prodi data to match the format expected by the Select component
             foreach ($prodiSemesters as $prodiSemester) {
                 $prodi = $prodiMap[$prodiSemester['id_prodi']];
-                if (stripos($prodi['nama_resmi'], 'hapus') === false) {
+                if (stripos($prodi['nama_resmi'], 'hapus') === false && stripos($prodi['nama_resmi'], 'Testing') === false) {
                     if ($userFakultasId == 0 || $prodi['fakultas']['id'] == $userFakultasId) {
                         $facultyName = $prodi['fakultas']['nama_resmi'];
                         if (!isset($prodiOptions[$facultyName])) {
@@ -268,7 +268,7 @@ class NeosiaController extends Controller
 
             foreach ($prodiSemesters as $prodiSemester) {
                 $prodi = $prodiMap[$prodiSemester['id_prodi']];
-                if (stripos($prodi['nama_resmi'], 'hapus') === false) {
+                if (stripos($prodi['nama_resmi'], 'hapus') === false && stripos($prodi['nama_resmi'], 'testing') === false) {
                     if ($userFakultasId == 0 || $prodi['fakultas']['id'] == $userFakultasId) {
                         $facultyName = $prodi['fakultas']['nama_resmi'];
                         if (!isset($prodiOptions[$facultyName])) {
@@ -334,6 +334,8 @@ class NeosiaController extends Controller
         $selectedProdiId = $request->query('id_prodi');
         $kode_dikti = $request->query('kode_dikti');
         $kode_matkul = $request->query('kode_matkul');
+        $filter = $request->query('filter');
+
 
         $courses = [];
 
@@ -399,7 +401,13 @@ class NeosiaController extends Controller
 
         $courseDetails= [];
 
-        $getCourseDetails = $this->getCourseDetails($request, $courseDetails);
+        if ($filter == 'statistik') {
+            $getCourseDetails = $this->getCourseDetails($request, $courseDetails);
+        }else if ($filter == 'presensi') {
+            $getCourseDetails = $this->getPresensi($request, $courseDetails);
+        }
+
+
 
         $request->session()->put('courseDetails', $getCourseDetails['courses']);
         $request->session()->put('total_grafik', $getCourseDetails['total_grafik']);
@@ -414,7 +422,23 @@ class NeosiaController extends Controller
 
         $courses = $request->session()->get('courses', []);
         $tokenSikola = env('TOKEN_SIKOLA');
-        $baseUrl = 'https://sikola-v2.unhas.ac.id/webservice/rest/server.php';
+        $tokenNeosia = Cookie::get('access_token') ?? env('TOKEN_NEOSIA');
+
+        $baseUrl = env('URL_API_SIKOLA');
+        $baseUrlRps = env('URL_RPS_LOGIN');
+        $baseUrlRpsMk = env('URL_RPS_MK');
+        $urlNeosia = env('API_NEOSIA');
+
+        $response = Http::withoutVerifying()->withOptions(["verify"=>false])->post($baseUrlRps, [
+            'username' => env('USER_RPS'),
+            'password' => env('PASS_RPS'),
+        ]);
+
+
+        $response = $response->json();
+        $tokenRps = $response['access_token'];
+
+
 
         $batchSize = 20;
         $batches = array_chunk($courses, $batchSize);
@@ -429,22 +453,39 @@ class NeosiaController extends Controller
 
         foreach ($batches as $batch) {
 
-            $responses = Http::pool(function (Pool $pool) use ($batch, $baseUrl, $tokenSikola) {
+            $responses = Http::pool(function (Pool $pool) use ($batch, $baseUrl, $tokenSikola, $baseUrlRps, $tokenRps, $urlNeosia, $tokenNeosia, $baseUrlRpsMk) {
                 foreach ($batch as $course) {
+
+                    $kelas_id = explode('.', $course['idnumber'])[1] ?? 0;
+                    $kode_matkul = null;
+                    if (preg_match('/\[(.*?)\]/', $course['fullname'], $matches)) {
+                        $kode_matkul = $matches[1];
+
+                    }
                     $pool->as("contents_{$course['id']}")->get($baseUrl, [
                         'wstoken' => $tokenSikola,
                         'moodlewsrestformat' => 'json',
                         'wsfunction' => 'core_course_get_contents',
                         'courseid' => $course['id'],
                     ]);
-                    $pool->as("users_{$course['id']}")->get($baseUrl, [
-                        'wstoken' => $tokenSikola,
-                        'moodlewsrestformat' => 'json',
-                        'wsfunction' => 'core_enrol_get_enrolled_users',
-                        'courseid' => $course['id'],
-                    ]);
+                    // $pool->as("users_{$course['id']}")->get($baeUrl, [
+                    //     'wstoken' => $tokenSikola,
+                    //     'moodlewsrestformat' => 'json',
+                    //     'wsfunction' => 'core_enrol_get_enrolled_users',
+                    //     'courseid' => $course['id'],
+                    // ]);
+                    $pool->as("users_{$course['id']}")->withHeaders([
+                        'Authorization' => 'Bearer ' . $tokenNeosia,
+                    ])->get($urlNeosia.'/admin_mkpk/dosen/input_nilai/kelas_kuliah/'.$kelas_id);
+                    $pool->as("rps_{$course['id']}")->withoutVerifying()->withOptions(["verify"=>false])->withHeaders([
+                        'Authorization' => 'Bearer ' . $tokenRps,
+                    ])->get($baseUrlRpsMk.'/'.$kode_matkul);
                 }
             });
+
+
+
+
             foreach ($batch as $index => $course) {
                 $courseId = $course['id'];
                 $cacheKey = "course_details_$courseId";
@@ -452,39 +493,23 @@ class NeosiaController extends Controller
                 $courseData = Cache::remember($cacheKey, now()->addHours(6), function () use ($responses, $courseId) {
                     $contentsResponse = $responses["contents_$courseId"] ?? null;
                     $usersResponse = $responses["users_$courseId"] ?? null;
+                    $rps = $responses["rps_$courseId"] ?? null;
 
 
                     $courseContents = $contentsResponse && $contentsResponse->successful() ? $contentsResponse->json() : [];
                     $enrolledUsers = $usersResponse && $usersResponse->successful() ? $usersResponse->json() : [];
+                    $rpsCounts = $rps && $rps->successful() ? $rps->json() : [];
 
-                    return compact('courseContents', 'enrolledUsers');
+                    return compact('courseContents', 'enrolledUsers', 'rpsCounts');
                 });
-                // $courseData = Cache::remember($cacheKey, now()->addHours(6), function () use ($baseUrl, $tokenSikola, $courseId) {
-                //     $responses = Http::pool(fn (Pool $pool) => [
-                //         $pool->as("contents")->get($baseUrl,[
-                //             'wstoken' => $tokenSikola,
-                //             'moodlewsrestformat' => 'json',
-                //             'wsfunction' => 'core_course_get_contents',
-                //             'courseid' => $courseId,
-                //         ]),
-                //         $pool->as("users")->get($baseUrl,[
-                //             'wstoken' => $tokenSikola,
-                //             'moodlewsrestformat' => 'json',
-                //             'wsfunction' => 'core_enrol_get_enrolled_users',
-                //             'courseid' => $courseId,
-                //         ]),
 
-                //     ]);
-
-                //     $courseContents = $responses["contents"]->json();
-                //     $enrolledUsers = $responses["users"]->json();
-                //     return compact('courseContents', 'enrolledUsers');
-                // });
 
 
 
                 $courseContents = $courseData['courseContents'];
                 $enrolledUsers = $courseData['enrolledUsers'];
+
+                $rpsCounts = $courseData['rpsCounts'];
 
                 // Process details
                 $urls = collect($courseContents)
@@ -517,21 +542,26 @@ class NeosiaController extends Controller
                     ->filter(fn($module) => $module['modname'] === 'quiz')
                     ->count();
 
-                $rps = collect($courseContents)
-                    ->filter(fn($section) => $section['section'] == 0)
-                    ->flatMap(fn($section) => $section['modules'] ?? [])
-                    ->filter(fn($module) => $module['modname'] === 'resource')
-                    ->count();
+                if (isset($rpsCounts['rps'])) {
+                    $rps = count($rpsCounts['rps']);
+                }else{
+                    $rps = 0;
+                }
+
 
                 $banyakAlur = collect($courseContents)
                     ->filter(fn($section) => $section['section'] != 0);
 
                 $banyakTerisi = $banyakAlur->filter(fn($section) => isset($section['modules']) && count($section['modules']) > 0);
 
-                $dosens = collect($enrolledUsers)
-                    ->filter(fn($user) => collect($user['groups'] ?? [])->contains('name', 'DOSEN'))
-                    ->pluck('lastname')
-                    ->join('\n');
+
+                // $dosens = collect($enrolledUsers)
+                //     ->filter(fn($user) => collect($user['groups'] ?? [])->contains('name', 'DOSEN'))
+                //     ->pluck('lastname')
+                //     ->join('\n');
+
+                $dosens = $enrolledUsers['kelasKuliah']['dosens'] ?? $enrolledUsers['kelas_kuliah']['dosens'] ?? [];
+                $dosens = collect($dosens)->pluck('nama')->join('\n');
 
                 $totalBanyakTerisi += $banyakTerisi->count();
                 $totalRps += $rps;
@@ -576,6 +606,184 @@ class NeosiaController extends Controller
         return $data;
 
     }
+    public function getPresensi($request, $courseDetails)
+    {
+
+        $courses = $request->session()->get('courses', []);
+        $tokenSikola = env('TOKEN_SIKOLA');
+        $tokenNeosia = Cookie::get('access_token') ?? env('TOKEN_NEOSIA');
+
+        $baseUrl = env('URL_API_SIKOLA');
+        $baseUrlRps = env('URL_RPS_LOGIN');
+        $baseUrlRpsMk = env('URL_RPS_MK');
+        $urlNeosia = env('API_NEOSIA');
+
+
+
+        $batchSize = 20;
+        $batches = array_chunk($courses, $batchSize);
+
+        $totalBanyakTerisi = 0;
+        $totalRps = 0;
+        $totalTugas = 0;
+        $totalDoc = 0;
+        $totalSurvey = 0;
+        $totalQuiz = 0;
+        $totalForum = 0;
+
+        foreach ($batches as $batch) {
+
+            $responses = Http::pool(function (Pool $pool) use ($batch, $baseUrl, $tokenSikola, $urlNeosia, $tokenNeosia) {
+                foreach ($batch as $course) {
+
+                    $kelas_id = explode('.', $course['idnumber'])[1] ?? 0;
+                    $kode_matkul = null;
+                    if (preg_match('/\[(.*?)\]/', $course['fullname'], $matches)) {
+                        $kode_matkul = $matches[1];
+
+                    }
+                    $pool->as("contents_{$course['id']}")->get($baseUrl, [
+                        'wstoken' => $tokenSikola,
+                        'moodlewsrestformat' => 'json',
+                        'wsfunction' => 'core_course_get_contents',
+                        'courseid' => $course['id'],
+                    ]);
+                    $pool->as("users_{$course['id']}")->withHeaders([
+                        'Authorization' => 'Bearer ' . $tokenNeosia,
+                    ])->get($urlNeosia.'/admin_mkpk/dosen/input_nilai/kelas_kuliah/'.$kelas_id);
+
+                    $pool->as("groups_{$course['id']}")->get($baseUrl, [
+                        'wstoken' => $tokenSikola,
+                        'moodlewsrestformat' => 'json',
+                        'wsfunction' => 'core_group_get_course_groups',
+                        'courseid' => $course['id'],
+                    ]);
+
+
+                }
+            });
+
+
+
+
+
+            foreach ($batch as $index => $course) {
+                $courseId = $course['id'];
+                $cacheKey = "course_details_$courseId";
+
+                $courseData = Cache::remember($cacheKey, now()->addHours(6), function () use ($responses, $courseId) {
+                    $contentsResponse = $responses["contents_$courseId"] ?? null;
+                    $usersResponse = $responses["users_$courseId"] ?? null;
+                    $groupResponse = $responses["groups_$courseId"] ?? null;
+
+                    $courseContents = $contentsResponse && $contentsResponse->successful() ? $contentsResponse->json() : [];
+                    $enrolledUsers = $usersResponse && $usersResponse->successful() ? $usersResponse->json() : [];
+                    $groupsCourse = $groupResponse && $groupResponse->successful() ? $groupResponse->json() : [];
+
+
+                    return compact('courseContents', 'enrolledUsers', 'groupsCourse');
+                });
+
+                $courseContents = $courseData['courseContents'];
+
+
+
+                $attendance = collect($courseContents)
+                    ->flatMap(fn($section) => $section['modules'] ?? [])
+                    ->filter(fn($module) => $module['modname'] === 'attendance');
+
+                $attendance = collect($courseContents)
+                    ->flatMap(fn($section) => $section['modules'] ?? [])
+                    ->filter(fn($module) => $module['modname'] === 'attendance');
+
+                $attendance = array_values($attendance->toArray());
+
+                $responses = Http::pool(function (Pool $pool) use ($baseUrl, $tokenSikola, $urlNeosia, $tokenNeosia, $attendance) {
+                    $pool->as("session")->get($baseUrl, [
+                        'wstoken' => $tokenSikola,
+                        'moodlewsrestformat' => 'json',
+                        'wsfunction' => 'mod_attendance_get_sessions',
+                        'attendanceid' => $attendance[0]['instance'],
+                    ]);
+
+                });
+
+                $sessions = $responses && $responses['session']->ok() ? $responses['session']->json() : [];
+
+
+                if (isset($courseData['groupsCourse']) && count($sessions) > 0) {
+                    $groupsCourse = $courseData['groupsCourse'];
+                    $groupDosen = collect($groupsCourse)
+                        ->filter(fn($group) => $group['name'] == 'DOSEN')
+                        ->first();
+                    $groupMahasiswa = collect($groupsCourse)
+                        ->filter(fn($group) => $group['name'] == 'MAHASISWA')
+                        ->first();
+                    $presensiDosen = collect($sessions)
+                        ->filter(fn($session) => $session['groupid'] == $groupDosen['id']);
+                    $presensiMahasiswa = collect($sessions)
+                        ->filter(fn($session) => $session['groupid'] == $groupMahasiswa['id']);
+
+
+                    $presensiDosen = array_values($presensiDosen->toArray());
+                    $presensiMahasiswa = array_values($presensiMahasiswa->toArray());
+
+                    dd($presensiDosen, $presensiMahasiswa);
+                }
+
+
+
+
+                if (isset($rpsCounts['rps'])) {
+                    $rps = count($rpsCounts['rps']);
+                }else{
+                    $rps = 0;
+                }
+
+
+                $banyakAlur = collect($courseContents)
+                    ->filter(fn($section) => $section['section'] != 0);
+
+                $banyakTerisi = $banyakAlur->filter(fn($section) => isset($section['modules']) && count($section['modules']) > 0);
+
+                $dosens = $enrolledUsers['kelasKuliah']['dosens'] ?? $enrolledUsers['kelas_kuliah']['dosens'] ?? [];
+                $dosens = collect($dosens)->pluck('nama')->join('\n');
+
+                $totalBanyakTerisi += $banyakTerisi->count();
+                $totalRps += $rps;
+
+
+                $courseDetails[] = [
+                    'id' => $courseId,
+                    'fullname' => $course['fullname'],
+
+                    'totalBanyakTerisi' => $banyakTerisi->count(),
+                    'totalBanyakAlur' => $banyakAlur->count(),
+                    'dosens' => $dosens,
+                ];
+            }
+        }
+
+        $data = [
+            'courses' => $courseDetails,
+            'total_grafik' => [
+                'totalBanyakTerisi' => $totalBanyakTerisi,
+                'totalRps' => $totalRps,
+                'totalTugas' => $totalTugas,
+                'totalDoc' => $totalDoc,
+                'totalSurvey' => $totalSurvey,
+                'totalQuiz' => $totalQuiz,
+                'totalForum' => $totalForum,
+            ]
+
+        ];
+
+
+        return $data;
+
+    }
+
+
 
     /**
      * Store a newly created resource in storage.

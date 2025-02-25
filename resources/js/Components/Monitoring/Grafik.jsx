@@ -18,6 +18,7 @@ const Grafik = ({ totals }) => {
       zoom: { enabled: true },
       toolbar: { show: true },
 
+
     },
     plotOptions: {
       bar: {
@@ -84,9 +85,25 @@ const Grafik = ({ totals }) => {
     grid: {
       row: { colors: ["transparent", "transparent"], opacity: 0.2 },
       borderColor: "#f1f3fa"
-    }
+    },
+    responsive: [{
+      breakpoint: 600,
+      options: {
+        chart: {
+          height: 240
+        },
+        plotOptions: {
+          bar: {
+            horizontal: true
+          }
+        },
+        legend: {
+          position: "bottom"
+        }
+      }
+    }]
   };
-  const series =  [{
+  const series = [{
     name: "Total",
     data: [
       totals?.totalBanyakTerisi,
@@ -99,17 +116,87 @@ const Grafik = ({ totals }) => {
     ]
   }];
 
+
+  const pieOptions = {
+    chart: {
+      height: 380,
+      type: "pie",
+      zoom: { enabled: true },
+      toolbar: { show: true }
+    },
+    title: {
+      text: `${namaProdi} ${namaSemester}`,
+      align: "center",
+      offsetY: 10,
+      style: {
+        fontSize: "14px",
+        fontWeight: "bold",
+        fontFamily: "Figtree",
+        color: "#444"
+      },
+    },
+    labels: ["Alur Pembelajaran (Terisi)", "RPS", "Tugas", "Doc", "Survey", "Quiz", "Forum"],
+    colors: colors,
+    legend: {
+      show: true,
+      position: "bottom",
+      horizontalAlign: "center",
+      verticalAlign: "middle",
+      floating: false,
+      fontSize: "14px",
+      offsetX: 0,
+      offsetY: 7
+    },
+    responsive: [{
+      breakpoint: 600,
+      options: {
+        chart: { height: 240 },
+        legend: { show: false }
+      }
+    }]
+  };
+
+  const pieSeries = [
+    totals?.totalBanyakTerisi,
+    totals?.totalRps,
+    totals?.totalTugas,
+    totals?.totalDoc,
+    totals?.totalSurvey,
+    totals?.totalQuiz,
+    totals?.totalForum
+  ];
+
+
+
   return (
     <div className="overflow-hidden bg-white shadow-md sm:rounded-lg dark:bg-gray-800">
       <div className="p-8 text-gray-900 dark:text-gray-100">
-        <p>Grafik</p>
+        <p className='text-center font-semibold text-lg mb-4'>GRAFIK STATISTIK</p>
 
-        <Chart
+        <div className='flex flex-wrap'>
+          <div className="w-full md:w-1/2">
+            <Chart
+              options={pieOptions}
+              series={pieSeries}
+              type="pie"
+              width="60%"
+            />
+          </div>
+
+          <div className="w-full md:w-1/2">
+            <Chart
               options={options}
               series={series}
               type="bar"
               width="700"
-        />
+            />
+          </div>
+        </div>
+
+
+
+
+
       </div>
     </div>
   );

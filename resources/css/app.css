@@ -15,10 +15,13 @@
     width: 24px;
     height: 24px;
     animation: spin 1s linear infinite;
-  }
+    -webkit-animation: spin 1s linear infinite;
+}
 
-  @keyframes spin {
+@keyframes spin {
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
-  }
+}
+
+

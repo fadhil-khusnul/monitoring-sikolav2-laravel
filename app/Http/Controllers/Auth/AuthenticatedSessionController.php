@@ -65,8 +65,10 @@ class AuthenticatedSessionController extends Controller
         //     return redirect()->intended(route('prodi.dashboard', absolute: false));
         // }
 
-
         return redirect()->intended(route('dashboard', absolute: false));
+
+
+
     }
 
     /**
@@ -80,6 +82,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

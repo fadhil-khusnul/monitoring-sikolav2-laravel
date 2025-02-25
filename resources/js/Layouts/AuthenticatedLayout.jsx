@@ -4,7 +4,7 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
-import { SunIcon, MoonIcon } from '@heroicons/react/24/outline';
+import { SunIcon, MoonIcon, ChartPieIcon, DocumentCheckIcon, VariableIcon, UsersIcon } from '@heroicons/react/24/outline';
 
 export default function AuthenticatedLayout({ header, children }) {
   const user = usePage().props.auth.user;
@@ -31,11 +31,43 @@ export default function AuthenticatedLayout({ header, children }) {
     setIsDark(!isDark);
   };
 
+  const menus = [
+    {
+      name: 'Statistik',
+      href: route('dashboard'),
+      current: route().current('dashboard'),
+      icon: <ChartPieIcon className="h-4 w-4" />,
+    },
+    {
+      name: 'Presensi',
+      href: route('presensi'),
+      current: route().current('presensi'),
+      icon: <DocumentCheckIcon className="h-4 w-4" />,
+    },
+    {
+      name: 'Nilai',
+      href: route('nilai'),
+      current: route().current('nilai'),
+      icon: <VariableIcon className="h-4 w-4" />,
+
+    },
+    {
+      name: 'Log Mahasiswa',
+      href: route('log-mahasiswa'),
+      current: route().current('log-mahasiswa'),
+      icon: <UsersIcon className="h-4 w-4" />,
+
+    }
+
+
+
+  ];
+
 
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900">
-      <nav className="border-b border-gray-400 bg-white dark:border-gray-700 dark:bg-gray-800">
+    <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+      <nav className="sticky top-0 z-50 border-b border-gray-400 bg-white dark:border-gray-700 dark:bg-gray-800">
         <div className="mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 justify-between">
             <div className="flex">
@@ -45,24 +77,28 @@ export default function AuthenticatedLayout({ header, children }) {
                 </Link>
               </div>
 
-              <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                <NavLink
-                  href={route('dashboard')}
-                  active={route().current('dashboard')}
-                >
-                  Dashboard
-                </NavLink>
+              <div className="hidden space-x-4 sm:-my-px sm:ms-10 sm:flex ">
+                {menus.map((menu) => (
+                  <NavLink key={menu.name} href={menu.href} active={menu.current}>
+                    <div className="flex items-center space-x-1">
+                      <span>{menu.name}</span>
+                      {menu.icon}
+                    </div>
+                  </NavLink>
+                ))}
+
+
               </div>
             </div>
 
             <div className="hidden sm:ms-6 sm:flex sm:items-center">
 
-              <input
+              {/* <input
                 type="checkbox"
                 checked={isDark}
                 onChange={toggleDarkMode}
                 className='toggle theme-controller'
-              />
+              /> */}
 
               {/* <input type="checkbox" value="dark" onChange={toggleDarkMode}
               className="toggle theme-controller" /> */}
@@ -163,12 +199,21 @@ export default function AuthenticatedLayout({ header, children }) {
           }
         >
           <div className="space-y-1 pb-3 pt-2">
-            <ResponsiveNavLink
-              href={route('dashboard')}
-              active={route().current('dashboard')}
-            >
-              Dashboard
-            </ResponsiveNavLink>
+            {
+              menus.map((menu) => (
+                <ResponsiveNavLink
+                  key={menu.name}
+                  href={menu.href}
+                  active={menu.current}
+                >
+                  <div className="flex items-center space-x-2">
+                    <span>{menu.name}</span>
+                    {menu.icon}
+                  </div>
+                </ResponsiveNavLink>
+              ))
+            }
+
           </div>
 
           <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
@@ -198,8 +243,8 @@ export default function AuthenticatedLayout({ header, children }) {
       </nav>
 
       {header && (
-        <header className="bg-white shadow dark:bg-gray-800">
-          <div className="mx-auto px-4 py-6 sm:px-6 lg:px-8">
+        <header className=" dark:bg-gray-800">
+          <div className="mx-auto p-8 py-6 sm:px-6 lg:px-8">
             {header}
           </div>
         </header>

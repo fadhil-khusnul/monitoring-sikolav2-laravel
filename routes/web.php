@@ -12,19 +12,15 @@ use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UniversitasController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [DashboardController::class, 'index']);
 
 
 Route::get('/course-details', [NeosiaController::class, 'getCourseDetails'])->name('getCourseDetails');
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/statistik', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/presensi', [DashboardController::class, 'presensi'])->name('presensi');
+    Route::get('/nilai', [DashboardController::class, 'nilai'])->name('nilai');
+    Route::get('/log-mahasiswa', [DashboardController::class, 'log_mahasiswa'])->name('log-mahasiswa');
     Route::get('/redirect-out', [SikolaController::class, 'redirect'])->name('redirect');
     Route::get('/getProdi', [NeosiaController::class, 'getProdi'])->name('getProdi');
     Route::get('/getMatkul', [NeosiaController::class, 'getMatkul'])->name('getMatkul');
