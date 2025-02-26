@@ -393,7 +393,7 @@ class NeosiaController extends Controller
                 $courses = array_values($courses);
             }
 
-            Storage::put('public/coursesMatkul/courses_' . $ta_semester . '_' . $selectedProdiId . '_' . $kode_matkul . '.json', json_encode($courses));
+            // Storage::put('public/coursesMatkul/courses_' . $ta_semester . '_' . $selectedProdiId . '_' . $kode_matkul . '.json', json_encode($courses));
         }
 
 
