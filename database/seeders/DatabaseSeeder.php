@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        $this->call(RoleSeeder::class);
+
+
         User::factory()->create([
             'name' => 'Admin Unhas',
             'email' => 'adminsikola@unhas.ac.id',
@@ -30,7 +33,6 @@ class DatabaseSeeder extends Seeder
 
         ]);
 
-        $this->call(RoleSeeder::class);
 
         // Load JSON data
         $json = File::get(database_path('seeders/user.json'));
