@@ -13,7 +13,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class DashboardController extends Controller
 {
-    public function filterData($request) {
+
+    public function getSemesters(){
 
         $baseUrl = env('API_NEOSIA');
         $token = Cookie::get('access_token') ?? env('TOKEN_NEOSIA');
@@ -23,6 +24,7 @@ class DashboardController extends Controller
         // dd($semesterResponse);
         $semesters = $semesterResponse->json()['semesters'] ?? [];
 
+        $semesters = array_slice($semesters, 0, 3);
 
         $semesterOptions = array_map(function ($semester) {
             $ta_semester = substr($semester['kode'], 2);
@@ -33,6 +35,13 @@ class DashboardController extends Controller
                 'mk_aktif' => $semester['tahun_ajaran'] . ' ' . ucfirst($semester['jenis']),
             ];
         }, $semesters);
+
+        return $semesterOptions;
+
+    }
+    public function filterData($request) {
+
+        $semesterOptions = $this->getSemesters();
 
         // dd($semesterOptions);
         $courses = $request->session()->get('courses', []);
@@ -60,6 +69,33 @@ class DashboardController extends Controller
 
         return $data;
     }
+    public function filterDataPresensi($request) {
+
+        $semesterOptions = $this->getSemesters();
+
+        // dd($semesterOptions);
+        $courseDetails = $request->session()->get('courseDetails', []);
+        $resultpresensiDosen = $request->session()->get('resultpresensiDosen', []);
+        $resultPresensiMahasiswa = $request->session()->get('resultPresensiMahasiswa', []);
+
+        $total = count($resultpresensiDosen);
+        $perPage = 10;
+        $page= $request->query('page', 1);
+        $paginatedCourses = new LengthAwarePaginator(
+            array_slice($resultpresensiDosen, ($page - 1) * $perPage, $perPage),
+            $total,
+            $perPage,
+            $page,
+            ['path' => $request->url(), 'query' => $request->query()]
+        );
+
+        $data = [
+            'semesterOptions' => $semesterOptions,
+            'resultpresensiDosen' => $paginatedCourses,
+        ];
+
+        return $data;
+    }
 
     public function index(Request $request) {
 
@@ -74,6 +110,8 @@ class DashboardController extends Controller
             'semesterOptions' => $semesterOptions,
             'courseDetails' => $courseDetails,
             'total_grafik' => $total_grafik,
+            'shouldRefresh' => session('shouldRefresh', false),
+            'title'=> 'Monitoring Statistik Matakuliah'
 
         ]);
 
@@ -84,17 +122,17 @@ class DashboardController extends Controller
 
 
     public function presensi(Request $request) {
-        $filterData = $this->filterData($request);
+        $filterData = $this->filterDataPresensi($request);
 
         $semesterOptions = $filterData['semesterOptions'];
-        $courseDetails = $filterData['courseDetails'];
-        $total_grafik = $filterData['total_grafik'];
+        $resultpresensiDosen = $filterData['resultpresensiDosen'];
 
 
         return Inertia::render('Presensi', [
             'semesterOptions' => $semesterOptions,
-            'courseDetails' => $courseDetails,
-            'total_grafik' => $total_grafik
+            'resultpresensiDosen' => $resultpresensiDosen,
+            'title'=> 'Monitoring Presensi Matakuliah'
+
 
         ]);
 

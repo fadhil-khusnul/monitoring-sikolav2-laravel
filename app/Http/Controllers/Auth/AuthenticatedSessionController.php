@@ -54,6 +54,16 @@ class AuthenticatedSessionController extends Controller
         $token = $response['access_token'];
         Cookie::queue('access_token', $token, 60 * 24); // 1 day
 
+        if ($token) {
+            session()->flash('shouldRefresh', true); // Tandai halaman perlu di-refresh
+
+            return redirect()->intended(route('dashboard', absolute: false));
+        }else{
+            return redirect()->intended(route('login', absolute: false));
+        }
+
+
+
 
         // if (Auth::user()->role->name === 'universitas') {
         //     return redirect()->intended(route('universitas.dashboard', absolute: false));
@@ -65,7 +75,6 @@ class AuthenticatedSessionController extends Controller
         //     return redirect()->intended(route('prodi.dashboard', absolute: false));
         // }
 
-        return redirect()->intended(route('dashboard', absolute: false));
 
 
 
@@ -82,6 +91,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/login')->with('logout', true);
     }
 }

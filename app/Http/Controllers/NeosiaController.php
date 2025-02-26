@@ -222,6 +222,7 @@ class NeosiaController extends Controller
 
         $semesters = $semesterResponse->json()['semesters'];
 
+        $semesters = array_slice($semesters, 0, 3);
         $semesterOptions = array_map(function ($semester) {
             $ta_semester = substr($semester['kode'], 2);
             return [
@@ -242,6 +243,7 @@ class NeosiaController extends Controller
         $selectedSemesterId = $request->query('id_semester');
         $user = $request->user();
         $userFakultasId = $user->fakultas_id;
+        $prodiID = $user->prodi_id;
 
         $prodiOptions = [];
 
@@ -269,7 +271,7 @@ class NeosiaController extends Controller
             foreach ($prodiSemesters as $prodiSemester) {
                 $prodi = $prodiMap[$prodiSemester['id_prodi']];
                 if (stripos($prodi['nama_resmi'], 'hapus') === false && stripos($prodi['nama_resmi'], 'testing') === false) {
-                    if ($userFakultasId == 0 || $prodi['fakultas']['id'] == $userFakultasId) {
+                    if ($userFakultasId == 0) {
                         $facultyName = $prodi['fakultas']['nama_resmi'];
                         if (!isset($prodiOptions[$facultyName])) {
                             $prodiOptions[$facultyName] = [
@@ -283,6 +285,43 @@ class NeosiaController extends Controller
                             'data_fakultas' => $facultyName,
                             'kode_dikti' => $prodi['kode_dikti'],
                         ];
+                    }
+
+                    if ($userFakultasId > 0 && !$prodiID) {
+                        if ($prodi['fakultas']['id'] == $userFakultasId) {
+                            # code...
+                            $facultyName = $prodi['fakultas']['nama_resmi'];
+                            if (!isset($prodiOptions[$facultyName])) {
+                                $prodiOptions[$facultyName] = [
+                                    'label' => $facultyName,
+                                    'options' => []
+                                ];
+                            }
+                            $prodiOptions[$facultyName]['options'][] = [
+                                'value' => $prodi['id'],
+                                'label' => $prodi['nama_resmi'],
+                                'data_fakultas' => $facultyName,
+                                'kode_dikti' => $prodi['kode_dikti'],
+                            ];
+                        }
+                    }
+                    if($prodiID && $userFakultasId > 0){
+                        if ($prodi['id'] == $prodiID) {
+                            # code...
+                            $facultyName = $prodi['fakultas']['nama_resmi'];
+                            if (!isset($prodiOptions[$facultyName])) {
+                                $prodiOptions[$facultyName] = [
+                                    'label' => $facultyName,
+                                    'options' => []
+                                ];
+                            }
+                            $prodiOptions[$facultyName]['options'][] = [
+                                'value' => $prodi['id'],
+                                'label' => $prodi['nama_resmi'],
+                                'data_fakultas' => $facultyName,
+                                'kode_dikti' => $prodi['kode_dikti'],
+                            ];
+                        }
                     }
                 }
             }
@@ -310,7 +349,7 @@ class NeosiaController extends Controller
             $matakuliahOptions = array_map(function ($mk) {
                 return [
                     'value' => $mk['id_kelas'],
-                    'label' => $mk['fullname_sikola'],
+                    'label' => $mk['nama_matkul'] . ' (' . $mk['kode_matkul'].')',
                     'id' => $mk['id_kelas'],
                     'kode_matkul' => $mk['kode_matkul']
                 ];
@@ -403,14 +442,16 @@ class NeosiaController extends Controller
 
         if ($filter == 'statistik') {
             $getCourseDetails = $this->getCourseDetails($request, $courseDetails);
+            $request->session()->put('courseDetails', $getCourseDetails['courses']);
+            $request->session()->put('total_grafik', $getCourseDetails['total_grafik']);
         }else if ($filter == 'presensi') {
             $getCourseDetails = $this->getPresensi($request, $courseDetails);
+            $request->session()->put('resultpresensiDosen', $getCourseDetails['resultpresensiDosen']);
+            $request->session()->put('resultPresensiMahasiswa', $getCourseDetails['resultPresensiMahasiswa']);
         }
 
 
 
-        $request->session()->put('courseDetails', $getCourseDetails['courses']);
-        $request->session()->put('total_grafik', $getCourseDetails['total_grafik']);
 
 
         return response()->json(['message' => 'success']);
@@ -606,7 +647,7 @@ class NeosiaController extends Controller
         return $data;
 
     }
-    public function getPresensi($request, $courseDetails)
+    public function getPresensi2($request, $courseDetails)
     {
 
         $courses = $request->session()->get('courses', []);
@@ -728,7 +769,11 @@ class NeosiaController extends Controller
                     $presensiMahasiswa = collect($sessions)
                         ->filter(fn($session) => $session['groupid'] == $groupMahasiswa['id']);
                     $presensiDosen = array_values($presensiDosen->toArray());
+                    dd($presensiDosen);
+
+
                     $presensiMahasiswa = array_values($presensiMahasiswa->toArray());
+
 
 
 
@@ -769,16 +814,208 @@ class NeosiaController extends Controller
 
         $data = [
             'courses' => $courseDetails,
-            'presensiDosen' => $presensiDosen,
-            'presensiMahasiswa' => $presensiMahasiswa,
-
-
-
+            'resultpresensiDosen' => $presensiDosen,
+            'resultpresensiDosen' => $presensiMahasiswa,
         ];
 
 
         return $data;
 
+    }
+
+
+    public function getPresensi($request, $courseDetails)
+    {
+        $courses = $request->session()->get('courses', []);
+        $tokenSikola = env('TOKEN_SIKOLA');
+        $tokenNeosia = Cookie::get('access_token') ?? env('TOKEN_NEOSIA');
+
+        $baseUrl = env('URL_API_SIKOLA');
+        $urlNeosia = env('API_NEOSIA');
+
+        $batchSize = 20;
+        $batches = array_chunk($courses, $batchSize);
+
+        // Variabel hasil
+        $resultpresensiDosen = [];
+        $resultpresensiMahasiswa = [];
+
+        foreach ($batches as $batch) {
+            // Lakukan parallel request untuk setiap course dalam batch
+            $responses = Http::pool(function (Pool $pool) use ($batch, $baseUrl, $tokenSikola, $urlNeosia, $tokenNeosia) {
+                foreach ($batch as $course) {
+                    $courseId = $course['id'];
+                    // Misal: idnumber berformat "SOMETHING.1" untuk kelas
+                    $kelas_id = explode('.', $course['idnumber'])[1] ?? 0;
+
+                    // Request konten (untuk mendapatkan modul attendance)
+                    $pool->as("contents_{$courseId}")->get($baseUrl, [
+                        'wstoken' => $tokenSikola,
+                        'moodlewsrestformat' => 'json',
+                        'wsfunction' => 'core_course_get_contents',
+                        'courseid' => $courseId,
+                    ]);
+
+                    $pool->as("users_sikola_{$courseId}")->get($baseUrl, [
+                        'wstoken' => $tokenSikola,
+                        'moodlewsrestformat' => 'json',
+                        'wsfunction' => 'core_enrol_get_enrolled_users',
+                        'courseid' => $courseId,
+                    ]);
+                    $pool->as("groups_{$courseId}")->get($baseUrl, [
+                        'wstoken' => $tokenSikola,
+                        'moodlewsrestformat' => 'json',
+                        'wsfunction' => 'core_group_get_course_groups',
+                        'courseid' => $courseId,
+                    ]);
+                }
+            });
+
+            foreach ($batch as $course) {
+                $courseId = $course['id'];
+                $cacheKey = "course_presensi_$courseId";
+
+                // Cache hasil respons per course
+                $courseData = Cache::remember($cacheKey, now()->addHours(6), function () use ($responses, $courseId) {
+                    $contentsResponse = $responses["contents_{$courseId}"] ?? null;
+                    $usersResponse = $responses["users_sikola_{$courseId}"] ?? null;
+                    $groupResponse = $responses["groups_{$courseId}"] ?? null;
+
+                    $courseContents = $contentsResponse && $contentsResponse->successful() ? $contentsResponse->json() : [];
+                    $enrolledUsers = $usersResponse && $usersResponse->successful() ? $usersResponse->json() : [];
+                    $groupsCourse = $groupResponse && $groupResponse->successful() ? $groupResponse->json() : [];
+
+                    return compact('courseContents', 'enrolledUsers', 'groupsCourse');
+                });
+
+                // Ambil modul attendance dari courseContents
+                $attendanceModules = collect($courseData['courseContents'])
+                    ->flatMap(fn($section) => $section['modules'] ?? [])
+                    ->filter(fn($module) => $module['modname'] === 'attendance')
+                    ->values()
+                    ->toArray();
+
+                if (empty($attendanceModules)) {
+                    continue;
+                }
+
+                // Ambil instance attendance dari modul pertama (misal)
+                $attendanceInstance = $attendanceModules[0]['instance'] ?? null;
+                if (!$attendanceInstance) {
+                    continue;
+                }
+
+                // Dapatkan sesi attendance via HTTP pool
+                $sessionResponse = Http::pool(function (Pool $pool) use ($baseUrl, $tokenSikola, $attendanceInstance) {
+                    $pool->as("session")->get($baseUrl, [
+                        'wstoken' => $tokenSikola,
+                        'moodlewsrestformat' => 'json',
+                        'wsfunction' => 'mod_attendance_get_sessions',
+                        'attendanceid' => $attendanceInstance,
+                    ]);
+
+                });
+
+                $sessions = (isset($sessionResponse['session']) && $sessionResponse['session']->ok())
+                ? $sessionResponse['session']->json()
+                : [];
+
+                // Format session data (tambahkan session_id dan tanggal)
+                // $courseSessions = collect($sessions)->map(function ($session, $index) {
+                //     // Jika sessdate adalah UNIX timestamp, format menjadi Y-m-d
+                //     $tanggal = isset($session['sessdate']) ? date('Y-m-d', $session['sessdate']) : null;
+                //     return [
+                //         'session_id' => $session['id'] ?? ($index + 1),
+                //         'tanggal'    => $tanggal,
+                //     ];
+                // })->values()->all();
+
+                // Jika ada grup course, pisahkan dosen dan mahasiswa
+
+                if (isset($courseData['groupsCourse']) && count($sessions) > 0) {
+                    $groupsCourse = $courseData['groupsCourse'];
+                    $groupDosen = collect($groupsCourse)
+                    ->firstWhere('name', 'DOSEN');
+                    $groupMahasiswa = collect($groupsCourse)
+                    ->firstWhere('name', 'MAHASISWA');
+
+
+                    $sessionDosen = collect($sessions)
+                    ->filter(fn($session) => $session['groupid'] == $groupDosen['id'])->values()->toArray();
+
+                    $sessionMahasiswa = collect($sessions)
+                    ->filter(fn($session) => $session['groupid'] == $groupMahasiswa['id']);
+
+                    $dosenList = collect($courseData['enrolledUsers'])->filter(fn($user) => collect($user['groups'] ?? [])->contains('name', 'DOSEN'))->values()->toArray();
+                    $mahasiswaList = collect($courseData['enrolledUsers'])->filter(fn($user) => collect($user['groups'] ?? [])->contains('name', 'MAHASISWA'))->values()->toArray();
+
+                    $presensDosens = collect($dosenList)->map(function ($dosen) use ($sessionDosen) {
+                        $presensi = collect($sessionDosen)->map(function ($session) use ($dosen) {
+                            // Cek apakah attendance_log ada entry dengan studentid sesuai dosen
+                            $log = collect($session['attendance_log'] ?? [])
+                                ->firstWhere('studentid', $dosen['id']);
+                            return [
+                                'session_id' => $session['id'] ?? null,
+                                'tanggal'    => isset($session['sessdate']) ? date('Y-m-d', $session['sessdate']) : null,
+                                'status'     => $log ? 1 : 0,
+                            ];
+                        })->values()->all();
+                        return [
+                            'nama_dosen' => $dosen['lastname'],
+                            'presensi'   => $presensi,
+                        ];
+                    })->values()->all();
+
+
+                    // Untuk setiap mahasiswa, periksa attendance_log
+                    $presensMahasiswas = collect($mahasiswaList)->map(function ($mhs) use ($sessionMahasiswa) {
+                        $presensi = collect($sessionMahasiswa)->map(function ($session) use ($mhs) {
+                            $log = collect($session['attendance_log'] ?? [])
+                                ->firstWhere('studentid', $mhs['id']);
+                            return [
+                                'session_id' => $session['id'] ?? null,
+                                'tanggal'    => isset($session['sessdate']) ? date('Y-m-d', $session['sessdate']) : null,
+                                'status'     => $log ? 1 : 0,
+                            ];
+                        })->values()->all();
+                        return [
+                            'nama_mahasiswa' => $mhs['nama_mahasiswa'] ?? ($mhs['lastname'] ?? 'Unknown'),
+                            'presensi'       => $presensi,
+                        ];
+                    })->values()->all();
+
+
+
+
+
+                    // Masukkan hasil untuk course ini ke array hasil monitoring
+                    $resultpresensiDosen[] = [
+                        'fullname_course' => $course['fullname'],
+                        'kelas_id'        => $course['idnumber'] ?? '',
+                        'course_id'       => $course['id'],
+                        'sessions'        => $sessionDosen,
+                        'presensDosens'   => $presensDosens,
+                    ];
+                    $resultpresensiMahasiswa[] = [
+                        'fullname_course'      => $course['fullname'],
+                        'kelas_id'             => $course['idnumber'] ?? '',
+                        'course_id'            => $course['id'],
+                        'sessions'             => $sessionMahasiswa,
+                        'presensiMahasiswas'   => $presensMahasiswas,
+                    ];
+                }
+            }
+        }
+
+
+
+        // Kembalikan data monitoring presensi
+        $data = [
+            'resultpresensiDosen'    => $resultpresensiDosen,
+            'resultPresensiMahasiswa'=> $resultpresensiMahasiswa,
+        ];
+
+        return $data;
     }
 
 

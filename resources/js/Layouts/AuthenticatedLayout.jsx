@@ -8,6 +8,7 @@ import { SunIcon, MoonIcon, ChartPieIcon, DocumentCheckIcon, VariableIcon, Users
 
 export default function AuthenticatedLayout({ header, children }) {
   const user = usePage().props.auth.user;
+  const { props } = usePage();
 
 
 
@@ -29,9 +30,16 @@ export default function AuthenticatedLayout({ header, children }) {
     localStorage.setItem('isDark', JSON.stringify(isDark));
   }, [isDark]);
 
+
+
   const toggleDarkMode = () => {
     setIsDark(!isDark);
   };
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    localStorage.clear();
+  }
 
   const menus = [
     {
@@ -143,6 +151,7 @@ export default function AuthenticatedLayout({ header, children }) {
                       href={route('logout')}
                       method="post"
                       as="button"
+                      onClick={handleLogout}
                     >
                       Log Out
                     </Dropdown.Link>
@@ -236,6 +245,7 @@ export default function AuthenticatedLayout({ header, children }) {
                 method="post"
                 href={route('logout')}
                 as="button"
+                onClick={handleLogout}
               >
                 Log Out
               </ResponsiveNavLink>

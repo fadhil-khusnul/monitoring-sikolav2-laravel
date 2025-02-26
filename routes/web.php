@@ -13,11 +13,11 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UniversitasController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
-Route::get('/', [AuthenticatedSessionController::class, 'create']);
 
 
 Route::get('/course-details', [NeosiaController::class, 'getCourseDetails'])->name('getCourseDetails');
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index']);
     Route::get('/statistik', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/presensi', [DashboardController::class, 'presensi'])->name('presensi');
     Route::get('/nilai', [DashboardController::class, 'nilai'])->name('nilai');

@@ -15,7 +15,7 @@ export default function Pagination({ links, queryParams }) {
 
         <Link
           preserveScroll
-          href={`${link.url}&${params.toString()}` || ""}
+          href={`${link.url}` || ""}
           key={link.label}
           className={
             "inline-block py-2 px-3 rounded-lg  text-xs " +
