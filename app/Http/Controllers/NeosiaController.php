@@ -631,6 +631,10 @@ class NeosiaController extends Controller
         $totalQuiz = 0;
         $totalForum = 0;
 
+
+        $presensiDosen = [];
+        $presensiMahasiswa = [];
+
         foreach ($batches as $batch) {
 
             $responses = Http::pool(function (Pool $pool) use ($batch, $baseUrl, $tokenSikola, $urlNeosia, $tokenNeosia) {
@@ -723,12 +727,11 @@ class NeosiaController extends Controller
                         ->filter(fn($session) => $session['groupid'] == $groupDosen['id']);
                     $presensiMahasiswa = collect($sessions)
                         ->filter(fn($session) => $session['groupid'] == $groupMahasiswa['id']);
-
-
                     $presensiDosen = array_values($presensiDosen->toArray());
                     $presensiMahasiswa = array_values($presensiMahasiswa->toArray());
 
-                    dd($presensiDosen, $presensiMahasiswa);
+
+
                 }
 
 
@@ -766,15 +769,10 @@ class NeosiaController extends Controller
 
         $data = [
             'courses' => $courseDetails,
-            'total_grafik' => [
-                'totalBanyakTerisi' => $totalBanyakTerisi,
-                'totalRps' => $totalRps,
-                'totalTugas' => $totalTugas,
-                'totalDoc' => $totalDoc,
-                'totalSurvey' => $totalSurvey,
-                'totalQuiz' => $totalQuiz,
-                'totalForum' => $totalForum,
-            ]
+            'presensiDosen' => $presensiDosen,
+            'presensiMahasiswa' => $presensiMahasiswa,
+
+
 
         ];
 

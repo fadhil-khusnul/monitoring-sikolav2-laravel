@@ -9,6 +9,8 @@ import { SunIcon, MoonIcon, ChartPieIcon, DocumentCheckIcon, VariableIcon, Users
 export default function AuthenticatedLayout({ header, children }) {
   const user = usePage().props.auth.user;
 
+
+
   const [showingNavigationDropdown, setShowingNavigationDropdown] =
     useState(false);
 

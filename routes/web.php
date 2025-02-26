@@ -11,8 +11,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FakultasController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UniversitasController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
-Route::get('/', [DashboardController::class, 'index']);
+Route::get('/', [AuthenticatedSessionController::class, 'create']);
 
 
 Route::get('/course-details', [NeosiaController::class, 'getCourseDetails'])->name('getCourseDetails');
