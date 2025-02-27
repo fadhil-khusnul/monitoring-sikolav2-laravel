@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react";
 export default function Pagination({ links, queryParams }) {
 
 
-  const params = new URLSearchParams(queryParams);
+  const params = new URLSearchParams(window.location.search);
 
 
   params.delete('page');

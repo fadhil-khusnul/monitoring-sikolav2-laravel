@@ -127,6 +127,12 @@ const FilterSelect = ({ semesterOptions, filter }) => {
 
 
   const handleFilterSubmit = async () => {
+    const params = new URLSearchParams(window.location.search);
+
+    console.log(window.location.search);
+
+
+
     setIsLoading(true)
     setIsFilterButtonDisabled(true)
     const filterParams = {
@@ -135,6 +141,10 @@ const FilterSelect = ({ semesterOptions, filter }) => {
       selectedCourse,
     };
     sessionStorage.setItem('filterParams', JSON.stringify(filterParams));
+
+
+
+
 
 
     console.log(filter);
@@ -152,8 +162,17 @@ const FilterSelect = ({ semesterOptions, filter }) => {
     if (filter) queryParams.filter = filter;
 
 
+
+
+
     if (selectedSemester &&selectedProgram) {
       const courseData = await fetchOptions('/getCourses', queryParams);
+
+      params.set('page', 1);
+
+      window.history.replaceState(null, '', '?' + params.toString());
+
+
 
       // router.get(route('dashboard'), queryParams, { preserveState: true });
 

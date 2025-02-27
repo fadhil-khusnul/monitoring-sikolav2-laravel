@@ -450,10 +450,6 @@ class NeosiaController extends Controller
             $request->session()->put('resultPresensiMahasiswa', $getCourseDetails['resultPresensiMahasiswa']);
         }
 
-
-
-
-
         return response()->json(['message' => 'success']);
 
 
@@ -944,7 +940,7 @@ class NeosiaController extends Controller
                     ->filter(fn($session) => $session['groupid'] == $groupDosen['id'])->values()->toArray();
 
                     $sessionMahasiswa = collect($sessions)
-                    ->filter(fn($session) => $session['groupid'] == $groupMahasiswa['id']);
+                    ->filter(fn($session) => $session['groupid'] == $groupMahasiswa['id'])->values()->toArray();
 
                     $dosenList = collect($courseData['enrolledUsers'])->filter(fn($user) => collect($user['groups'] ?? [])->contains('name', 'DOSEN'))->values()->toArray();
                     $mahasiswaList = collect($courseData['enrolledUsers'])->filter(fn($user) => collect($user['groups'] ?? [])->contains('name', 'MAHASISWA'))->values()->toArray();
@@ -979,7 +975,8 @@ class NeosiaController extends Controller
                             ];
                         })->values()->all();
                         return [
-                            'nama_mahasiswa' => $mhs['nama_mahasiswa'] ?? ($mhs['lastname'] ?? 'Unknown'),
+                            'nama_mahasiswa' => $mhs['lastname'],
+                            'nim' => $mhs['firstname'],
                             'presensi'       => $presensi,
                         ];
                     })->values()->all();
@@ -1011,6 +1008,7 @@ class NeosiaController extends Controller
 
         // Kembalikan data monitoring presensi
         $data = [
+            'resultpresensiDosen'    => $resultpresensiDosen,
             'resultpresensiDosen'    => $resultpresensiDosen,
             'resultPresensiMahasiswa'=> $resultpresensiMahasiswa,
         ];

@@ -89,57 +89,82 @@ const TablePresensi = ({ resultpresensiDosen, queryParams = null }) => {
   }, [courses]);
 
   return (
-    <div className="overflow-x-auto bg-white shadow-md sm:rounded-lg dark:bg-gray-800 p-4">
-      <h1 className="text-center font-semibold text-lg">{namaProdi}</h1>
-      <h1 className="text-center font-semibold text-lg mb-4">{namaSemester}</h1>
-      <table className="table-auto w-full border-collapse">
-        <thead className="bg-gray-50 dark:bg-gray-700">
-          <tr>
-            <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase">No</th>
-            <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase">Nama Kelas</th>
-            <th className="px-4 py-2 text-xs font-medium text-gray-500 uppercase">Nama Dosen</th>
-            {weeks.map((week, idx) => (
-              <th key={idx} className="px-4 py-2 text-xs text-gray-500 uppercase text-center">
-                {`${moment(week).format("DD MMM YYYY")}`}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-          {courses.map((course, courseIndex) => (
-            course.dosens.map((dosen, dosenIndex) => (
-              <tr key={`${course.course_id}-${dosenIndex}`}>
-                {dosenIndex === 0 && (
-                  <>
-                    <td rowSpan={course.dosens.length} className="px-4 py-2 text-sm text-gray-900" valign='top'>
-                      {courseIndex + 1 + (page - 1) * perPage}
-                    </td>
-                    <td rowSpan={course.dosens.length} className="px-4 py-2 text-sm text-primary" valign='top' >
-                      <a
-                        href={`https://sikola-v2.unhas.ac.id/course/view.php?id=${course.course_id}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {course.course_fullname}
-                      </a>
-                    </td>
-                  </>
-                )}
-                <td className="px-4 py-2 text-sm text-gray-900">{dosen.nama_dosen}</td>
+    <>
+
+      <div tabIndex={0} className="collapse collapse-open collapse-arrow bg-white shadow-md sm:rounded-lg dark:bg-gray-800 p-4">
+
+        <input type="checkbox" />
+
+        <div className="collapse-title text-xl font-medium">Tabel Presensi Dosen</div>
+
+        <div className="collapse-content">
+
+          <h1 className="text-center font-semibold text-lg">{namaProdi}</h1>
+          <h1 className="text-center font-semibold text-lg mb-4">{namaSemester}</h1>
+          <table className="table-auto w-full border-collapse">
+            <thead className="bg-gray-50 dark:bg-gray-700">
+              <tr>
+                <th className="text-xs font-medium text-gray-500 uppercase">No</th>
+                <th className="text-xs font-medium text-gray-500 uppercase">Nama Kelas</th>
+                <th className="text-xs font-medium text-gray-500 uppercase">Nama Dosen</th>
                 {weeks.map((week, idx) => (
-                  <td key={idx} className="px-4 py-2 text-sm text-center text-gray-900">
-                    {dosen.weekCounts[week] || 0}
-                  </td>
+                  <th key={idx} className="text-xs text-gray-500 uppercase text-center">
+                    {`${moment(week).format("DD MMM YYYY")}`}
+                  </th>
                 ))}
+                <th className="text-xs font-medium text-gray-500 uppercase text-center">
+                  Total Kehadiran
+                </th>
               </tr>
-            ))
-          ))}
-        </tbody>
-      </table>
-      <div className="pagination mt-4">
-        <Pagination links={resultpresensiDosen?.links} queryParams={queryParams} />
+            </thead>
+            <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+              {courses.map((course, courseIndex) => (
+                course.dosens.map((dosen, dosenIndex) => {
+                  const totalSessions = course.sessions.length;
+                  const totalAttendance = weeks.reduce((acc, week) => acc + (dosen.weekCounts[week] || 0), 0);
+
+
+                  return (
+
+
+                    <tr key={`${course.course_id}-${dosenIndex}`}>
+                      {dosenIndex === 0 && (
+                        <>
+                          <td rowSpan={course.dosens.length} className="text-xs text-gray-900" valign='top'>
+                            {courseIndex + 1 + (page - 1) * perPage}
+                          </td>
+                          <td rowSpan={course.dosens.length} className="text-xs text-primary" valign='top' >
+                            <a
+                              href={`https://sikola-v2.unhas.ac.id/course/view.php?id=${course.course_id}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              {course.course_fullname}
+                            </a>
+                          </td>
+                        </>
+                      )}
+                      <td className="text-xs text-gray-900">{dosen.nama_dosen}</td>
+                      {weeks.map((week, idx) => (
+                        <td key={idx} className="text-xs text-center text-gray-900">
+                          {dosen.weekCounts[week] || ''}
+                        </td>
+                      ))}
+                      <td className="text-xs text-center text-gray-900">{totalAttendance}</td>
+
+                    </tr>
+                  );
+                })
+
+              ))}
+            </tbody>
+          </table>
+          <div className="pagination mt-4">
+            <Pagination links={resultpresensiDosen?.links} queryParams={queryParams} />
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 
 

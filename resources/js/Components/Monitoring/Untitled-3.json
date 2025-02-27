@@ -1,0 +1,214 @@
+{
+    "resultpresensiDosen": [
+        {
+            "fullname_course": "Kelas A",
+            "kelas_id": "1",
+            "course_id": "2",
+            "sessions":[
+                {
+                    "session_id": "1",
+                    "tanggal": "2021-01-01"
+                },
+                {
+                    "session_id": "2",
+                    "tanggal": "2021-01-02"
+                },
+                {
+                    "session_id": "3",
+                    "tanggal": "2021-01-03"
+                }
+            ],
+            "presensDosens": [
+                {
+                    "nama_dosen": "Dosen A",
+                    "presensi": [
+                        {
+                            "session_id": "1",
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "2",
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "3",
+
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                },
+                {
+                    "nama_dosen": "Dosen B",
+                    "presensi": [
+                        {
+                            "session_id": "1",
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "2",
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "3",
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "fullname_course": "Kelas B",
+            "kelas_id": "2",
+            "course_id": "3",
+            "presensDosens": [
+                {
+                    "nama_dosen": "Dosen A",
+                    "presensi": [
+                        {
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                },
+                {
+                    "nama_dosen": "Dosen B",
+                    "presensi": [
+                        {
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "resultPresensiMahasiswa": [
+        {
+            "fullname_course": "Kelas A",
+            "kelas_id": "1",
+            "course_id": "2",
+            "presensiMahasiswas": [
+                {
+                    "nama_mahasiswa": "Mahasiswa A",
+                    "presensi": [
+                        {
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                },
+                {
+                    "nama_mahasiswa": "Mahasiswa B",
+                    "presensi": [
+                        {
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "fullname_course": "Kelas B",
+            "kelas_id": "2",
+            "course_id": "3",
+           
+            "sessions":[
+                {
+                    "session_id": "1",
+                    "tanggal": "2021-01-01"
+                },
+                {
+                    "session_id": "2",
+                    "tanggal": "2021-01-02"
+                },
+                {
+                    "session_id": "3",
+                    "tanggal": "2021-01-03"
+                }
+            ],
+            "presensiMahasiswas": [
+                {
+                    "nama_mahasiswa": "Mahasiswa A",
+                    "presensi": [
+                        {
+                            "session_id": "1",
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "2",
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "2",
+
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                },
+                {
+                    "nama_mahasiswa": "Mahasiswa B",
+                    "presensi": [
+                        {
+                            "session_id": "1",
+                            "tanggal": "2021-01-01",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "2",
+                            "tanggal": "2021-01-02",
+                            "status": "Hadir"
+                        },
+                        {
+                            "session_id": "3",
+                            "tanggal": "2021-01-03",
+                            "status": "Tidak Hadir"
+                        }
+                    ]
+                }
+              
+            ]
+        }
+    ]
+}

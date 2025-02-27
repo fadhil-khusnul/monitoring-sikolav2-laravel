@@ -89,9 +89,21 @@ class DashboardController extends Controller
             ['path' => $request->url(), 'query' => $request->query()]
         );
 
+        $totalMhs = count($resultPresensiMahasiswa);
+        $perPageMhs = 10;
+        $page= $request->query('page', 1);
+        $paginatedCoursesMhs = new LengthAwarePaginator(
+            array_slice($resultPresensiMahasiswa, ($page - 1) * $perPageMhs, $perPageMhs),
+            $totalMhs,
+            $perPageMhs,
+            $page,
+            ['path' => $request->url(), 'query' => $request->query()]
+        );
+
         $data = [
             'semesterOptions' => $semesterOptions,
             'resultpresensiDosen' => $paginatedCourses,
+            'resultPresensiMahasiswa' => $paginatedCoursesMhs,
         ];
 
         return $data;
@@ -126,11 +138,14 @@ class DashboardController extends Controller
 
         $semesterOptions = $filterData['semesterOptions'];
         $resultpresensiDosen = $filterData['resultpresensiDosen'];
+        $resultPresensiMahasiswa = $filterData['resultPresensiMahasiswa'] ?? [];
 
+        // dd($resultPresensiMahasiswa);
 
         return Inertia::render('Presensi', [
             'semesterOptions' => $semesterOptions,
             'resultpresensiDosen' => $resultpresensiDosen,
+            'resultPresensiMahasiswa' => $resultPresensiMahasiswa,
             'title'=> 'Monitoring Presensi Matakuliah'
 
 

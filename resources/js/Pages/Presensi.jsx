@@ -2,8 +2,13 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import FilterSelect from '@/Components/Monitoring/FilterSelect';
 import TablePresensi from '@/Components/Monitoring/TablePresensi';
+import { Tab } from '@mui/material';
+import TablePresensiMahasiswa from '@/Components/Monitoring/TablePresensiMahasiswa';
 
-export default function Presensi({ semesterOptions, resultpresensiDosen, title }) {
+export default function Presensi({ semesterOptions, resultpresensiDosen, resultPresensiMahasiswa, title }) {
+
+  console.log(resultPresensiMahasiswa);
+
 
 
 
@@ -30,7 +35,12 @@ export default function Presensi({ semesterOptions, resultpresensiDosen, title }
             </div>
 
             <div className="w-full px-2 mb-4">
-              {resultpresensiDosen.data.length > 0 ? <TablePresensi resultpresensiDosen={resultpresensiDosen} /> : null}
+              {resultpresensiDosen?.data.length > 0 ? <TablePresensi resultpresensiDosen={resultpresensiDosen} /> : null}
+
+
+            </div>
+            <div className="w-full px-2 mb-4">
+              {resultPresensiMahasiswa?.data.length > 0 ? <TablePresensiMahasiswa resultpresensiMahasiswa={resultPresensiMahasiswa} /> : null}
 
 
             </div>
