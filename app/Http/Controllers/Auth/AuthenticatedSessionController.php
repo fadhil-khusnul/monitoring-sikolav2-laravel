@@ -51,7 +51,7 @@ class AuthenticatedSessionController extends Controller
         ]);
 
         $response = $response->json();
-        $token = $response['access_token'];
+        $token = $response['access_token'] ?? env('TOKEN_NEOSIA');
         Cookie::queue('access_token', $token, 60 * 24); // 1 day
 
         if ($token) {
