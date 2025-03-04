@@ -50,11 +50,12 @@ const Table = ({ courses, queryParams = null }) => {
             {courses?.data?.map((course, index) => (
               <TableRow key={course.id}>
                 <TableCell>{index + 1 + (page - 1) * perPage}</TableCell>
-                <TableCell>
+                <TableCell className='text-primary'>
                   <a
                     href={`https://sikola-v2.unhas.ac.id/course/view.php?id=${course.id}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className='text-primary hover:text-primary-700'
                   >
                     {course.fullname}
                   </a>

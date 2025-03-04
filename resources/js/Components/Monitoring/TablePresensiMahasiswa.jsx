@@ -79,90 +79,89 @@ const TablePresensiMahasiswa = ({ resultpresensiMahasiswa, queryParams = null })
   }, [courses]);
 
   return (
-    <div className="overflow-x-auto bg-white shadow-md sm:rounded-lg dark:bg-gray-800 p-4">
-      <div className="collapse collapse-open collapse-arrow bg-white shadow-md sm:rounded-lg dark:bg-gray-800 p-4">
-        <div className="collapse-title text-xl font-medium">Tabel Presensi Mahasiswa</div>
-        <div className="collapse-content">
-          <h1 className="text-center font-semibold text-lg">{namaProdi}</h1>
-          <h1 className="text-center font-semibold text-lg mb-4">{namaSemester}</h1>
-          <table className="table-auto w-full border-collapse">
-            <thead className="bg-gray-50 dark:bg-gray-700">
-              <tr>
-                <th className="text-xs font-medium text-gray-500 uppercase">No</th>
-                <th className="text-xs font-medium text-gray-500 uppercase">Nama Kelas</th>
-                <th className="text-xs font-medium text-gray-500 uppercase">NIM</th>
-                <th className="text-xs font-medium text-gray-500 uppercase">Nama Mahasiswa</th>
-                {weeks.map((week, idx) => (
-                  <th key={idx} className="text-xs text-gray-500 uppercase text-center">
-                    {moment(week).format("DD MMM YYYY")}
-                  </th>
-                ))}
-                <th className="text-xs font-medium text-gray-500 uppercase text-center">
-                  Total Kehadiran
+    <div className="collapse collapse-open bg-white shadow-md sm:rounded-lg dark:bg-gray-800 p-4">
+      <div className="collapse-title text-xl font-medium">Tabel Presensi Mahasiswa</div>
+      <div className="collapse-content">
+        <h1 className="text-center font-semibold text-lg">{namaProdi}</h1>
+        <h1 className="text-center font-semibold text-lg mb-4">{namaSemester}</h1>
+        <table className="table-auto w-full border-collapse">
+          <thead className="bg-gray-50 dark:bg-gray-700">
+            <tr>
+              <th className="text-xs font-medium text-gray-500 uppercase">No</th>
+              <th className="text-xs font-medium text-gray-500 uppercase">Nama Kelas</th>
+              <th className="text-xs font-medium text-gray-500 uppercase">NIM</th>
+              <th className="text-xs font-medium text-gray-500 uppercase">Nama Mahasiswa</th>
+              {weeks.map((week, idx) => (
+                <th key={idx} className="text-xs text-gray-500 uppercase text-center">
+                  {moment(week).format("DD MMM YYYY")}
                 </th>
-                <th className="text-xs font-medium text-gray-500 uppercase text-center">
-                  Persentase
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-              {courses.map((course, courseIndex) =>
-                course.mahasiswas.map((mhs, mhsIndex) => {
-                  // Total sesi untuk course ini
-                  const totalSessions = course.sessions.length;
-                  // Total kehadiran mahasiswa: jumlahkan dari setiap minggu (global, jika tidak ada, 0)
-                  const totalAttendance = weeks.reduce((acc, week) => acc + (mhs.weekCounts[week] || 0), 0);
-                  // Persentase kehadiran
-                  const percentage = totalSessions > 0 ? (totalAttendance / totalSessions) * 100 : 0;
-                  // Badge style: hijau jika >= 80, merah jika < 80
-                  const badgeStyle =
-                    percentage >= 80
-                      ? "bg-green-500 text-white px-2 py-1 rounded"
-                      : "bg-red-500 text-white px-2 py-1 rounded";
-                  return (
-                    <tr key={`${course.course_id}-${mhsIndex}`}>
-                      {mhsIndex === 0 && (
-                        <>
-                          <td rowSpan={course.mahasiswas.length} className="text-xs text-gray-900" valign="top">
-                            {courseIndex + 1 + (page - 1) * perPage}
+              ))}
+              <th className="text-xs font-medium text-gray-500 uppercase text-center">
+                Total Kehadiran
+              </th>
+              <th className="text-xs font-medium text-gray-500 uppercase text-center">
+                Persentase
+              </th>
+            </tr>
+          </thead>
+          <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+            {courses.map((course, courseIndex) =>
+              course.mahasiswas.map((mhs, mhsIndex) => {
+                // Total sesi untuk course ini
+                const totalSessions = course.sessions.length;
+                // Total kehadiran mahasiswa: jumlahkan dari setiap minggu (global, jika tidak ada, 0)
+                const totalAttendance = weeks.reduce((acc, week) => acc + (mhs.weekCounts[week] || 0), 0);
+                // Persentase kehadiran
+                const percentage = totalSessions > 0 ? (totalAttendance / totalSessions) * 100 : 0;
+                // Badge style: hijau jika >= 80, merah jika < 80
+                const badgeStyle =
+                  percentage >= 80
+                    ? "bg-green-500 text-white px-2 py-1 rounded"
+                    : "bg-red-500 text-white px-2 py-1 rounded";
+                return (
+                  <tr key={`${course.course_id}-${mhsIndex}`}>
+                    {mhsIndex === 0 && (
+                      <>
+                        <td rowSpan={course.mahasiswas.length} className="text-xs text-gray-900" valign="top">
+                          {courseIndex + 1 + (page - 1) * perPage}
 
-                          </td>
-                          <td rowSpan={course.mahasiswas.length} className="text-xs text-primary" valign="top">
-                            <a
-                              href={`https://sikola-v2.unhas.ac.id/course/view.php?id=${course.course_id}`}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              {course.course_fullname}
-                            </a>
-                          </td>
-                        </>
-                      )}
-                      <td className="text-xs text-gray-900">{mhs.nim}</td>
-                      <td className="text-xs text-gray-900">{mhs.nama_mahasiswa}</td>
-                      {weeks.map((week, idx) => (
-                        <td key={idx} className="text-xs text-center text-gray-900">
-                          {mhs.weekCounts[week] || ''}
                         </td>
-                      ))}
-                      <td className="text-xs text-center text-gray-900">{totalAttendance}</td>
-                      <td className="text-xs text-center">
-                        <span className={badgeStyle}>
-                          {percentage.toFixed(0)}%
-                        </span>
+                        <td rowSpan={course.mahasiswas.length} className="text-xs text-primary" valign="top">
+                          <a
+                            href={`https://sikola-v2.unhas.ac.id/course/view.php?id=${course.course_id}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {course.course_fullname}
+                          </a>
+                        </td>
+                      </>
+                    )}
+                    <td className="text-xs text-gray-900">{mhs.nim}</td>
+                    <td className="text-xs text-gray-900">{mhs.nama_mahasiswa}</td>
+                    {weeks.map((week, idx) => (
+                      <td key={idx} className="text-xs text-center text-gray-900">
+                        {mhs.weekCounts[week] || ''}
                       </td>
-                    </tr>
-                  );
-                })
-              )}
-            </tbody>
-          </table>
-          <div className="pagination mt-4">
-            <Pagination links={resultpresensiMahasiswa?.links} queryParams={queryParams} />
-          </div>
+                    ))}
+                    <td className="text-xs text-center text-gray-900">{totalAttendance}</td>
+                    <td className="text-xs text-center">
+                      <span className={badgeStyle}>
+                        {percentage.toFixed(0)}%
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })
+            )}
+          </tbody>
+        </table>
+        <div className="pagination mt-4">
+          <Pagination links={resultpresensiMahasiswa?.links} queryParams={queryParams} />
         </div>
       </div>
     </div>
+
   );
 };
 

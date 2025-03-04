@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { router } from '@inertiajs/react';
 import Select from 'react-select';
 import InputLabel from '../InputLabel';
+import Swal from 'sweetalert2';
 
 const FilterSelect = ({ semesterOptions, filter }) => {
   const [selectedSemester, setSelectedSemester] = useState(null);
@@ -17,7 +18,7 @@ const FilterSelect = ({ semesterOptions, filter }) => {
 
   useEffect(() => {
     // Load saved filters from session storage on component mount
-    const savedFilters = JSON.parse(sessionStorage.getItem('filterParams'));
+    const savedFilters = JSON.parse(sessionStorage.getItem('filterParams')) ?? JSON.parse(localStorage.getItem('filterParams'));
     if (savedFilters) {
       setSelectedSemester(savedFilters.selectedSemester || null);
       setSelectedProgram(savedFilters.selectedProgram || null);
@@ -60,15 +61,21 @@ const FilterSelect = ({ semesterOptions, filter }) => {
   };
 
   const fetchOptions = async (endpoint, params) => {
-    try {
-      const response = await fetch(`${endpoint}?${new URLSearchParams(params)}`);
-      if (response.ok) {
-        return await response.json();
+    const response = await fetch(`${endpoint}?${new URLSearchParams(params)}`);
+    if (response.ok) {
+      return await response.json();
+    } else {
+      // Try to extract error message from JSON response
+      let errorMessage = response.statusText;
+      try {
+        const errorData = await response.json();
+        if (errorData.message) {
+          errorMessage = errorData.message;
+        }
+      } catch (e) {
+        // If parsing fails, use default status text.
       }
-      throw new Error('Failed to fetch data');
-    } catch (error) {
-      console.error(error);
-      return [];
+      throw new Error(`Internal Server Error (${response.status}): ${errorMessage}`);
     }
   };
 
@@ -141,6 +148,7 @@ const FilterSelect = ({ semesterOptions, filter }) => {
       selectedCourse,
     };
     sessionStorage.setItem('filterParams', JSON.stringify(filterParams));
+    localStorage.setItem('filterParams', JSON.stringify(filterParams));
 
 
 
@@ -165,22 +173,24 @@ const FilterSelect = ({ semesterOptions, filter }) => {
 
 
 
-    if (selectedSemester &&selectedProgram) {
-      const courseData = await fetchOptions('/getCourses', queryParams);
+    if (selectedSemester && selectedProgram) {
+      try {
+        // Attempt to fetch courses
+        const courseData = await fetchOptions('/getCourses', queryParams);
+        router.reload();
+      } catch (error) {
+        console.error(error);
+        Swal.fire({
+          icon: 'warning',
+          title: 'Try Again',
+          text: `Silahkan Coba Lagi, Untuk Mengambil Data ${error.message}`,
+          confirmButtonColor: '#3085d6',
+        });
 
-      params.set('page', 1);
-
-      window.history.replaceState(null, '', '?' + params.toString());
-
-
-
-      // router.get(route('dashboard'), queryParams, { preserveState: true });
-
-      router.reload()
-      setIsLoading(false)
-      setIsFilterButtonDisabled(false)
-
-
+      } finally {
+        setIsLoading(false);
+        setIsFilterButtonDisabled(false);
+      }
     }
 
 

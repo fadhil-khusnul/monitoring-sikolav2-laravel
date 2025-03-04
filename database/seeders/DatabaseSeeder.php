@@ -61,66 +61,91 @@ class DatabaseSeeder extends Seeder
         ];
 
         $createdUsers = [];
+        $createdUsersProdi = [];
 
         // Create users for each program
+        $facultyData = [];
+        $programData = [];
         foreach ($programs as $program) {
-            $faculty = $program['fakultas'];
-            $facultyUsername = 'admin_' . strtolower($faculty['nama_singkat']);
-            $facultyPassword = $credentials[$facultyUsername] ?? 'defaultPassword';
+            if (stripos($program['nama_resmi'], 'hapus') === false && stripos($program['nama_resmi'], 'Testing') === false) {
+                # code...
 
-            // Create faculty user if not exists
-            $facultyUser = User::firstOrCreate(
-                ['email' => $faculty['email']],
-                [
+                $faculty = $program['fakultas'];
+                $facultyUsername = 'admin_' . strtolower($faculty['nama_singkat']);
+                $facultyPassword = $credentials[$facultyUsername] ?? 'defaultPassword';
+
+                $facultyData[] = [
                     'name' => $faculty['nama_resmi'],
+                    'email' => null,
                     'username' => $facultyUsername,
                     'password' => Hash::make($facultyPassword),
                     'fakultas_id' => $faculty['id'],
                     'nama_fakultas' => $faculty['nama_resmi'],
                     'role_id' => 2,
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
 
-                ]
-            );
-
-            // Assign faculty role
-
-            // Log faculty user
-            $createdUsers[] = [
-                'name' => $faculty['nama_resmi'],
-                'username' => $facultyUsername,
-                'password' => $facultyPassword,
-                'role_id' => 'fakultas',
-            ];
-
-            // Create program user
-            $programUsername = 'admin_' . strtolower($program['id']);
-            $programPassword = Str::random(6);
-
-            $programUser = User::firstOrCreate(
-                ['email' => $program['email']],
-                [
+                $namProdi = str_replace(' ', '_', strtolower($program['nama_resmi']));
+                $namProdi = str_replace('-', '', $namProdi);
+                $programUsername = 'admin_' . $namProdi;
+                $programPassword = \Illuminate\Support\Str::random(6);
+                $programData[] = [
                     'name' => $program['nama_resmi'],
+                    'email' => null,
                     'username' => $programUsername,
                     'password' => Hash::make($programPassword),
                     'fakultas_id' => $faculty['id'],
                     'nama_fakultas' => $faculty['nama_resmi'],
                     'prodi_id' => $program['id'],
                     'role_id' => 3,
-                ]
-            );
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
 
-            // Assign program role
+                $createdUsers[] = [
+                    'name' => $faculty['nama_resmi'],
+                    'username' => $facultyUsername,
+                    'password' => $facultyPassword,
+                    'role' => 'fakultas',
+                ];
+                $createdUsersProdi[] = [
+                    'name' => $program['nama_resmi'],
+                    'username' => $programUsername,
+                    'password' => $programPassword,
+                    'role' => 'prodi',
+                ];
 
-            // Log program user
-            $createdUsers[] = [
-                'name' => $program['nama_resmi'],
-                'username' => $programUsername,
-                'password' => $programPassword,
-                'role_id' => 'prodi',
-            ];
+            }
         }
 
-        // Write created users to a JSON file
-        File::put(database_path('seeders/hasilCreateUser.json'), json_encode($createdUsers, JSON_PRETTY_PRINT));
+        // Insert faculty records. Use insertOrIgnore to skip duplicates.
+        DB::table('users')->insertOrIgnore($facultyData);
+
+        // Insert program records.
+        DB::table('users')->insertOrIgnore($programData);
+
+        $csvFile = storage_path('app/private/hasilCreateUserProdi.csv');
+        $handle = fopen($csvFile, 'w');
+
+
+        // Write CSV header.
+        fputcsv($handle, ['name', 'username', 'password', 'role']);
+        // Write each user row.
+        foreach ($createdUsersProdi as $userData) {
+            fputcsv($handle, [
+                $userData['name'],
+                $userData['username'],
+                $userData['password'],
+                $userData['role']
+            ]);
+        }
+        fclose($handle);
+
+
+        // Optionally, write created users data to a file
+        // File::put(database_path('seeders/hasilCreateUserFakultas.json'), json_encode($createdUsers, JSON_PRETTY_PRINT));
+        // File::put(database_path('seeders/hasilCreateUserProdi.json'), json_encode($createdUsersProdi, JSON_PRETTY_PRINT));
+
     }
 }

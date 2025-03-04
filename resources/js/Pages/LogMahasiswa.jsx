@@ -1,26 +1,22 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head, router, usePage } from '@inertiajs/react';
-import Select from 'react-select';
-import { useState, useEffect } from 'react';
-import Table from '@/Components/Monitoring/Table';
-import Grafik from '@/Components/Monitoring/Grafik';
+import { Head } from '@inertiajs/react';
 import FilterSelect from '@/Components/Monitoring/FilterSelect';
+import TableLogMahasiswa from '@/Components/Monitoring/TableLogMahasiswa';
 
-export default function LogMahasiswa({ semesterOptions, courseDetails, total_grafik }) {
+export default function LogMahasiswa({ title, semesterOptions, resultLogMahasiswa }) {
 
 
-  console.log(total_grafik);
 
 
   return (
     <AuthenticatedLayout
       header={
         <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-          Log Mahasiswa
+          {title}
         </h2>
       }
     >
-      <Head title="Log Mahasiswa"/>
+      <Head title={title}/>
       <div className="">
         <div className="mx-auto sm:px-6 lg:py-4">
           <div className="shadow-sm sm:rounded-lg dark:bg-gray-800">
@@ -29,6 +25,7 @@ export default function LogMahasiswa({ semesterOptions, courseDetails, total_gra
 
               <FilterSelect
                 semesterOptions={semesterOptions}
+                filter='logmahasiswa'
 
               />
 
@@ -45,7 +42,7 @@ export default function LogMahasiswa({ semesterOptions, courseDetails, total_gra
 
             </div>
             <div className="w-full px-2 mb-4">
-              Halaman Log Mahasiswa
+            {resultLogMahasiswa?.data?.length > 0 ? <TableLogMahasiswa resultLogMahasiswa={resultLogMahasiswa} /> : null}
 
 
             </div>

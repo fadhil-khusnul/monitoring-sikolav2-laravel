@@ -109,6 +109,8 @@ class DashboardController extends Controller
         return $data;
     }
 
+
+
     public function index(Request $request) {
 
         $filterData = $this->filterData($request);
@@ -154,12 +156,53 @@ class DashboardController extends Controller
     }
     public function nilai(Request $request) {
 
-        return Inertia::render('Nilai');
+        return Inertia::render('Nilai', [
+            'title'=> 'Monitoring Nilai Matakuliah'
+        ]);
 
     }
+
+    public function filterDataNilai($request) {
+
+
+        $resultNilai = $request->session()->get('resultNilai', []);
+
+
+
+        $data = [
+            'resultNilai' => $resultNilai
+        ];
+
+        return $data;
+
+    }
+
     public function log_mahasiswa(Request $request) {
 
-        return Inertia::render('LogMahasiswa');
+        $semesterOptions = $this->getSemesters();
+
+        $filterData = $this->filterLogMahasiswa($request);
+        $resultLogMahasiswa = $filterData['resultLogMahasiswa'];
+
+
+
+        return Inertia::render('LogMahasiswa', [
+            'title'=> 'Log Mahasiswa',
+            'semesterOptions' => $semesterOptions,
+            'resultLogMahasiswa' => $resultLogMahasiswa
+        ]);
 
     }
+
+    public function filterLogMahasiswa($request) {
+        $resultLogMahasiswa = $request->session()->get('resultLogMahasiswa', []);
+
+        $data = [
+            'resultLogMahasiswa' => $resultLogMahasiswa
+        ];
+
+        return $data;
+
+    }
+
 }

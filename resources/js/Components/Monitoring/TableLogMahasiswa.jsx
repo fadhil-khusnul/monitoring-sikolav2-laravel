@@ -8,7 +8,7 @@ import Pagination from './Pagination';
 import moment from 'moment';
 
 
-const TablePresensi = ({ resultpresensiDosen, queryParams = null }) => {
+const TableLogMahasiswa = ({ resultpresensiDosen, queryParams = null }) => {
 
   const savedParams = JSON.parse(sessionStorage.getItem('filterParams'))
   const namaSemester = savedParams?.selectedSemester.label ?? ''
@@ -173,4 +173,4 @@ const TablePresensi = ({ resultpresensiDosen, queryParams = null }) => {
 
 };
 
-export default TablePresensi;
+export default TableLogMahasiswa;

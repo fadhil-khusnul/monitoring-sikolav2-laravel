@@ -7,7 +7,7 @@ import TablePresensiMahasiswa from '@/Components/Monitoring/TablePresensiMahasis
 
 export default function Presensi({ semesterOptions, resultpresensiDosen, resultPresensiMahasiswa, title }) {
 
-  console.log(resultPresensiMahasiswa);
+  console.log(resultpresensiDosen);
 
 
 
