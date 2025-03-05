@@ -135,8 +135,8 @@ const FilterSelect = ({ semesterOptions, filter }) => {
 
   const handleFilterSubmit = async () => {
     const params = new URLSearchParams(window.location.search);
-
-    console.log(window.location.search);
+    params.set('page', 1);
+    window.history.replaceState(null, '', '?' + params.toString());
 
 
 
