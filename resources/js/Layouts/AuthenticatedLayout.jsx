@@ -62,9 +62,9 @@ export default function AuthenticatedLayout({ header, children }) {
 
     },
     {
-      name: 'Log Mahasiswa',
-      href: route('log-mahasiswa'),
-      current: route().current('log-mahasiswa'),
+      name: 'Log Peserta Matakuliah',
+      href: route('log-users'),
+      current: route().current('log-users'),
       icon: <UsersIcon className="h-4 w-4" />,
 
     }

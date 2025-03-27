@@ -4,14 +4,21 @@ import FilterSelect from '@/Components/Monitoring/FilterSelect';
 import TablePresensi from '@/Components/Monitoring/TablePresensi';
 import { Tab } from '@mui/material';
 import TablePresensiMahasiswa from '@/Components/Monitoring/TablePresensiMahasiswa';
+import TableSkeleton from '@/Components/Monitoring/TableSkeleton';
+import { useEffect, useState } from 'react';
 
 export default function Presensi({ semesterOptions, resultpresensiDosen, resultPresensiMahasiswa, title }) {
-
-  console.log(resultpresensiDosen);
-
+    const [isTableLoading, setIsTableLoading] = useState(false);
 
 
 
+
+ useEffect(() => {
+    // Reset loading state ketika data berubah
+    if (resultpresensiDosen) {
+      setIsTableLoading(false);
+    }
+  }, [resultpresensiDosen]);
 
   return (
     <AuthenticatedLayout
@@ -30,17 +37,19 @@ export default function Presensi({ semesterOptions, resultpresensiDosen, resultP
               <FilterSelect
                 semesterOptions={semesterOptions}
                 filter='presensi'
+                onFilterStart={() => setIsTableLoading(true)}
+
 
               />
             </div>
 
             <div className="w-full px-2 mb-4">
-              {resultpresensiDosen?.data.length > 0 ? <TablePresensi resultpresensiDosen={resultpresensiDosen} /> : null}
+              {isTableLoading ? (<TableSkeleton />) : resultpresensiDosen?.data.length > 0 ? (<TablePresensi resultpresensiDosen={resultpresensiDosen} />) : null}
 
 
             </div>
             <div className="w-full px-2 mb-4">
-              {resultPresensiMahasiswa?.data.length > 0 ? <TablePresensiMahasiswa resultpresensiMahasiswa={resultPresensiMahasiswa} /> : null}
+              {isTableLoading ? (<TableSkeleton />) : resultPresensiMahasiswa?.data.length > 0 ? <TablePresensiMahasiswa resultpresensiMahasiswa={resultPresensiMahasiswa} /> : null}
 
 
             </div>

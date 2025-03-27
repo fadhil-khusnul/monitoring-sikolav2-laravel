@@ -4,8 +4,9 @@ import { router } from '@inertiajs/react';
 import Select from 'react-select';
 import InputLabel from '../InputLabel';
 import Swal from 'sweetalert2';
+import Checkbox from '../Checkbox';
 
-const FilterSelect = ({ semesterOptions, filter }) => {
+const FilterSelect = ({ semesterOptions, filter, onFilterStart }) => {
   const [selectedSemester, setSelectedSemester] = useState(null);
   const [selectedProgram, setSelectedProgram] = useState(null);
   const [selectedCourse, setSelectedCourse] = useState(null);
@@ -14,6 +15,7 @@ const FilterSelect = ({ semesterOptions, filter }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [isFilterButtonDisabled, setIsFilterButtonDisabled] = useState(true);
   const [isInitialLoad, setIsInitialLoad] = useState(true);
+  const [cekMK, setCekMK] = useState(false);
 
 
   useEffect(() => {
@@ -155,7 +157,6 @@ const FilterSelect = ({ semesterOptions, filter }) => {
 
 
 
-    console.log(filter);
 
 
 
@@ -166,18 +167,30 @@ const FilterSelect = ({ semesterOptions, filter }) => {
     if (selectedProgram?.value) queryParams.id_prodi = selectedProgram.value;
     if (selectedProgram?.kode_dikti) queryParams.kode_dikti = selectedProgram.kode_dikti;
     if (selectedCourse?.kode_matkul) queryParams.kode_matkul = selectedCourse.kode_matkul;
-
     if (filter) queryParams.filter = filter;
-
+    if (cekMK) queryParams.cekMK = cekMK;
 
 
 
 
     if (selectedSemester && selectedProgram) {
+      if (onFilterStart) {
+        onFilterStart();
+      }
       try {
         // Attempt to fetch courses
         const courseData = await fetchOptions('/getCourses', queryParams);
-        router.reload();
+        // router.reload();
+
+        await router.visit(window.location.pathname, {
+          data: queryParams,
+          preserveState: true,
+          replace: true,
+
+        })
+
+
+
       } catch (error) {
         console.error(error);
         Swal.fire({
@@ -189,6 +202,7 @@ const FilterSelect = ({ semesterOptions, filter }) => {
 
       } finally {
         setIsLoading(false);
+
         setIsFilterButtonDisabled(false);
       }
     }
@@ -255,7 +269,7 @@ const FilterSelect = ({ semesterOptions, filter }) => {
             />
           </div>
 
-          {/* Filter Button */}
+
           <div className="w-full sm:w-1/3 md:w-1/4 px-2 mt-6">
             <button
               onClick={handleFilterSubmit}
@@ -264,6 +278,20 @@ const FilterSelect = ({ semesterOptions, filter }) => {
             >
               {isLoading ? 'Loading...' : 'Filter'}
             </button>
+          </div>
+
+          <div className='w-full sm:w-1/3 md:w-1/4 px-3'>
+            <div className="flex items-center">
+              <Checkbox
+                name='cekMK'
+                onChange={(e) => setCekMK(e.target.checked)}
+
+              />
+              <label className="ml-2 block text-sm text-gray-900 dark:text-gray-100">
+                Tampilkan Matakuliah Non Tatap Muka
+              </label>
+            </div>
+
           </div>
         </div>
       </div>

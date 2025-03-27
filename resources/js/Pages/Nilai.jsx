@@ -2,25 +2,34 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, router, usePage } from '@inertiajs/react';
 import Select from 'react-select';
 import { useState, useEffect } from 'react';
-import Table from '@/Components/Monitoring/Table';
-import Grafik from '@/Components/Monitoring/Grafik';
 import FilterSelect from '@/Components/Monitoring/FilterSelect';
+import TableNilai from '@/Components/Monitoring/TableNilai';
+import GrafikNilai from '@/Components/Monitoring/GrafikNilai';
+import TableSkeleton from '@/Components/Monitoring/TableSkeleton';
+import SkeletonGrafik from '@/Components/Monitoring/SkeletonGrafik';
 
-export default function Nilai({ semesterOptions, courseDetails, total_grafik }) {
+export default function Nilai({ semesterOptions, grades, totalSinkron, totalTidakSinkron, title }) {
+
+  const [isLoading, setIsLoading] = useState(false);
 
 
-  console.log(total_grafik);
 
+  useEffect(() => {
+    // Reset loading state ketika data berubah
+    if (grades) {
+      setIsLoading(false);
+    }
+  }, [grades]);
 
   return (
     <AuthenticatedLayout
       header={
         <h2 className="text-xl font-semibold leading-tight text-gray-800 dark:text-gray-200">
-          Presensi
+          {title}
         </h2>
       }
     >
-      <Head title="Nilai Mata Kuliah" />
+      <Head title={title} />
       <div className="">
         <div className="mx-auto sm:px-6 lg:py-4">
           <div className="shadow-sm sm:rounded-lg dark:bg-gray-800">
@@ -29,6 +38,9 @@ export default function Nilai({ semesterOptions, courseDetails, total_grafik }) 
 
               <FilterSelect
                 semesterOptions={semesterOptions}
+                filter={'nilai'}
+                onFilterStart={() => setIsLoading(true)}
+
 
               />
 
@@ -40,19 +52,27 @@ export default function Nilai({ semesterOptions, courseDetails, total_grafik }) 
 
       <div className="py-12">
         <div className="mx-auto sm:px-6 lg:px-4">
-          <div className="grid gap-4 mx-2 lg:grid-cols-1">
-            <div className="w-full px-2 mb-4">
+          <div className="grid gap-4 mx-2">
+            <div className="flex flex-wrap lg:flex-nowrap gap-2">
+              {/* Grafik */}
+              <div className="w-full lg:w-1/3 px-2 mb-4">
+                {isLoading ? <SkeletonGrafik /> : totalSinkron ? (
+                  <GrafikNilai
+                    totalSinkron={totalSinkron}
+                    totalTidakSinkron={totalTidakSinkron}
+                  />
+                ) : null}
+              </div>
 
+              {/* Tabel */}
+              <div className="w-full lg:w-2/3 px-2 mb-4">
+                {isLoading ? <TableSkeleton /> : grades.data.length > 0 ? <TableNilai courses={grades} /> : null}
+              </div>
             </div>
-            <div className="w-full px-2 mb-4">
-              Halaman Nilai
-
-
-            </div>
-
           </div>
         </div>
       </div>
+
 
 
 

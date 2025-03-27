@@ -74,7 +74,6 @@ class DashboardController extends Controller
         $semesterOptions = $this->getSemesters();
 
         // dd($semesterOptions);
-        $courseDetails = $request->session()->get('courseDetails', []);
         $resultpresensiDosen = $request->session()->get('resultpresensiDosen', []);
         $resultPresensiMahasiswa = $request->session()->get('resultPresensiMahasiswa', []);
 
@@ -142,7 +141,6 @@ class DashboardController extends Controller
         $resultpresensiDosen = $filterData['resultpresensiDosen'];
         $resultPresensiMahasiswa = $filterData['resultPresensiMahasiswa'] ?? [];
 
-        // dd($resultPresensiMahasiswa);
 
         return Inertia::render('Presensi', [
             'semesterOptions' => $semesterOptions,
@@ -155,9 +153,24 @@ class DashboardController extends Controller
 
     }
     public function nilai(Request $request) {
-
+        $semesterOptions = $this->getSemesters();
+        $grades = $request->session()->get('grades', []);
+        $total = count($grades);
+        $perPage = 10;
+        $page= $request->query('page', 1);
+        $paginatedCourses = new LengthAwarePaginator(
+            array_slice($grades, ($page - 1) * $perPage, $perPage),
+            $total,
+            $perPage,
+            $page,
+            ['path' => $request->url(), 'query' => $request->query()]
+        );
         return Inertia::render('Nilai', [
-            'title'=> 'Monitoring Nilai Matakuliah'
+            'semesterOptions' => $semesterOptions,
+            'title'=> 'Monitoring Nilai Matakuliah',
+            'grades' => $paginatedCourses,
+            'totalSinkron' => $request->session()->get('totalSinkron', 0),
+            'totalTidakSinkron' => $request->session()->get('totalTidakSinkron', 0),
         ]);
 
     }
@@ -177,28 +190,41 @@ class DashboardController extends Controller
 
     }
 
-    public function log_mahasiswa(Request $request) {
+    public function log_users(Request $request) {
 
         $semesterOptions = $this->getSemesters();
 
         $filterData = $this->filterLogMahasiswa($request);
-        $resultLogMahasiswa = $filterData['resultLogMahasiswa'];
+        $logs = $filterData['logs'];
 
 
 
-        return Inertia::render('LogMahasiswa', [
-            'title'=> 'Log Mahasiswa',
+
+
+        return Inertia::render('LogUser', [
+            'title'=> 'Log Peserta Matakuliah',
             'semesterOptions' => $semesterOptions,
-            'resultLogMahasiswa' => $resultLogMahasiswa
+            'logs' => $logs
         ]);
 
     }
 
     public function filterLogMahasiswa($request) {
-        $resultLogMahasiswa = $request->session()->get('resultLogMahasiswa', []);
+        $logMahasiswa = $request->session()->get('logMahasiswa', []);
+
+        $total = count($logMahasiswa);
+        $perPage = 10;
+        $page= $request->query('page', 1);
+        $paginatedCourses = new LengthAwarePaginator(
+            array_slice($logMahasiswa, ($page - 1) * $perPage, $perPage),
+            $total,
+            $perPage,
+            $page,
+            ['path' => $request->url(), 'query' => $request->query()]
+        );
 
         $data = [
-            'resultLogMahasiswa' => $resultLogMahasiswa
+            'logs' => $paginatedCourses
         ];
 
         return $data;

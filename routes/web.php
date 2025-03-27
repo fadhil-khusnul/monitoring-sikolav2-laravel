@@ -21,7 +21,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/statistik', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/presensi', [DashboardController::class, 'presensi'])->name('presensi');
     Route::get('/nilai', [DashboardController::class, 'nilai'])->name('nilai');
-    Route::get('/log-mahasiswa', [DashboardController::class, 'log_mahasiswa'])->name('log-mahasiswa');
+    Route::get('/log-users', [DashboardController::class, 'log_users'])->name('log-users');
     Route::get('/redirect-out', [SikolaController::class, 'redirect'])->name('redirect');
     Route::get('/getProdi', [NeosiaController::class, 'getProdi'])->name('getProdi');
     Route::get('/getMatkul', [NeosiaController::class, 'getMatkul'])->name('getMatkul');

@@ -7,9 +7,12 @@ import Table from '@/Components/Monitoring/Table';
 import Grafik from '@/Components/Monitoring/Grafik';
 import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
+import SkeletonGrafik from '@/Components/Monitoring/SkeletonGrafik';
+import TableSkeleton from '@/Components/Monitoring/TableSkeleton';
 
 export default function Dashboard({ semesterOptions, courseDetails, total_grafik, shouldRefresh, title }) {
   const [open, setOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (shouldRefresh) {
@@ -20,6 +23,13 @@ export default function Dashboard({ semesterOptions, courseDetails, total_grafik
       }, 1000);
     }
   }, [shouldRefresh]);
+
+  useEffect(() => {
+    // Reset loading state ketika data berubah
+    if (total_grafik) {
+      setIsLoading(false);
+    }
+  }, [total_grafik]);
 
   return (
     <>
@@ -50,13 +60,13 @@ export default function Dashboard({ semesterOptions, courseDetails, total_grafik
             <div className="mx-auto sm:px-6 lg:px-4">
               <div className="grid gap-4 mx-2 lg:grid-cols-1">
                 <div className="w-full px-2 mb-4">
-                  <FilterSelect semesterOptions={semesterOptions} filter={'statistik'} />
+                  <FilterSelect semesterOptions={semesterOptions} filter={'statistik'} onFilterStart={() => setIsLoading(true)} />
                 </div>
                 <div className="w-full px-2 mb-4">
-                  {total_grafik ? <Grafik totals={total_grafik} /> : null}
+                  {isLoading ? ( <SkeletonGrafik />) : total_grafik ? <Grafik totals={total_grafik} /> : null}
                 </div>
                 <div className="w-full px-2 mb-4">
-                  {courseDetails.data.length > 0 ? <Table courses={courseDetails} /> : null}
+                  {isLoading ? <TableSkeleton /> : courseDetails.data.length > 0 ? <Table courses={courseDetails} /> : null}
                 </div>
               </div>
             </div>

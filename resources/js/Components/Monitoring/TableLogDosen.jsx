@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query'
 import Pagination from './Pagination';
 import moment from 'moment';
 
-const TableLogMahasiswa = ({ logs, queryParams = null }) => {
+const TableLogDosen = ({ logs, queryParams = null }) => {
   const savedParams = JSON.parse(sessionStorage.getItem('filterParams'))
   const namaSemester = savedParams?.selectedSemester.label ?? ''
   const namaProdi = savedParams?.selectedProgram.label ?? ''
@@ -19,7 +19,7 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
     return logs.data.map(course => {
       // Kelompokkan session berdasarkan minggu
       const sessionsByWeek = {};
-      course.sessionMahasiswa.forEach(session => {
+      course.sessionDosen.forEach(session => {
         const sessDate = moment.unix(session.sessdate);
         const weekKey = sessDate.startOf('isoWeek').format("YYYY-MM-DD");
 
@@ -41,14 +41,14 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
         }));
 
       // Transformasi data dosen
-      const mahasiswas = course.logsMahasiswa.map(mhs => {
+      const dosens = course.logsDosen.map(dosen => {
         const weekCounts = {};
         transformedSessions.forEach(ws => {
           weekCounts[ws.weekKey] = 0;
         });
 
         // Hitung log per minggu
-        mhs.logs.forEach(record => {
+        dosen.logs.forEach(record => {
           const logDate = moment.unix(record.timecreated);
           transformedSessions.forEach(ws => {
             if (logDate.isBetween(ws.startDate, ws.endDate, null, '[]')) {
@@ -58,8 +58,8 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
         });
 
         return {
-          nama_mahasiswa: mhs.nama_mahasiswa,
-          nim: mhs.nim,
+          nama_dosen: dosen.nama_dosen,
+          nip: dosen.nip,
           weekCounts,
         };
       });
@@ -69,7 +69,7 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
         kelas_id: course.kelas_id,
         course_id: course.course_id,
         sessions: transformedSessions,
-        mahasiswas,
+        dosens,
       };
     });
   }, [logs]);
@@ -93,7 +93,7 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
   return (
     <div tabIndex={0} className="collapse collapse-open bg-white shadow-md sm:rounded-lg dark:bg-gray-800 p-4">
       <input type="checkbox" />
-      <div className="collapse-title text-xl font-medium">Tabel Log Mahasiswa</div>
+      <div className="collapse-title text-xl font-medium">Tabel Log Dosen</div>
 
       <div className="collapse-content">
         <h1 className="text-center font-semibold text-lg">{namaProdi}</h1>
@@ -104,8 +104,8 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
             <tr>
               <th className="text-xs font-medium text-gray-500 uppercase">No</th>
               <th className="text-xs font-medium text-gray-500 uppercase" width="20%">Nama Kelas</th>
-              <th className="text-xs font-medium text-gray-500 uppercase">NIM</th>
-              <th className="text-xs font-medium text-gray-500 uppercase">Nama Mahasiswa</th>
+              <th className="text-xs font-medium text-gray-500 uppercase">NIP</th>
+              <th className="text-xs font-medium text-gray-500 uppercase">Nama Dosen</th>
               {weeks.map((week, idx) => (
                 <th key={idx} className="text-xs text-gray-500 uppercase text-center">
                   {`${week.startDate.format("DD MMM")} - ${week.endDate.format("DD MMM")}`}
@@ -116,14 +116,14 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
 
           <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
             {courses.map((course, courseIndex) => (
-              course.mahasiswas.map((mhs, mhsIndex) => (
-                <tr key={`${course.course_id}-${mhsIndex}`}>
-                  {mhsIndex === 0 && (
+              course.dosens.map((dosen, dosenIndex) => (
+                <tr key={`${course.course_id}-${dosenIndex}`}>
+                  {dosenIndex === 0 && (
                     <>
-                      <td rowSpan={course.mahasiswas.length} className="text-xs text-gray-900" valign='top'>
+                      <td rowSpan={course.dosens.length} className="text-xs text-gray-900" valign='top'>
                         {courseIndex + 1 + (page - 1) * perPage}
                       </td>
-                      <td rowSpan={course.mahasiswas.length} className="text-xs text-primary" valign='top'>
+                      <td rowSpan={course.dosens.length} className="text-xs text-primary" valign='top'>
                         <a
                           href={`https://sikola-v2.unhas.ac.id/course/view.php?id=${course.course_id}`}
                           target="_blank"
@@ -134,11 +134,11 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
                       </td>
                     </>
                   )}
-                  <td className="text-xs text-gray-900" valign='top'>{mhs.nim.toUpperCase()}</td>
-                  <td className="text-xs text-gray-900">{mhs.nama_mahasiswa}</td>
+                  <td className="text-xs text-gray-900" valign='top'>{dosen.nip.toUpperCase()}</td>
+                  <td className="text-xs text-gray-900">{dosen.nama_dosen}</td>
                   {weeks.map((week, idx) => (
                     <td key={idx} className="text-xs text-center text-gray-900">
-                      {mhs.weekCounts[week.startDate.format("YYYY-MM-DD")] || ''}
+                      {dosen.weekCounts[week.startDate.format("YYYY-MM-DD")] || ''}
                     </td>
                   ))}
                 </tr>
@@ -155,4 +155,4 @@ const TableLogMahasiswa = ({ logs, queryParams = null }) => {
   );
 };
 
-export default TableLogMahasiswa;
+export default TableLogDosen;
